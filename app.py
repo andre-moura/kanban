@@ -7,22 +7,26 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    if request.method == "GET":
+        return render_template('index.html')
 
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    if request.method == "GET":
+        return render_template('login.html')
 
 
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    if request.method == "GET":
+        return render_template('register.html')
 
 
 @app.route('/boards')
 def boards():
-    return render_template('boards.html')
+    if request.method == "GET":
+        return render_template('boards.html')
 
 
 if __name__ == "__main__":
