@@ -23,11 +23,17 @@ def register():
         return render_template('register.html')
 
 
-@app.route('/boards')
+@app.route('/projects')
 def boards():
     if request.method == "GET":
-        return render_template('boards.html')
+        return render_template('projects.html')
+
+
+@app.route('/board')
+def board():
+    if request.method == "GET":
+        return render_template('board.html')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='localhost')
