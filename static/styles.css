@@ -4,3 +4,53 @@
     --black: rgba(0,0,0,0.9);
     --blue: #70B5F9;
 }
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat',sans-serif;
+}
+
+nav {
+    background-color: var(--light-black);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0.25%;
+}
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: flex;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 1%;
+    cursor: pointer;
+}
+
+nav ul li.items {
+    position: relative;
+    width: auto;
+    margin: auto 1%;
+    text-align: center;
+    order: 3;
+}
+
+nav ul li.logo{
+    flex: 1;
+    color: white;
+    cursor: default;
+    user-select: none;
+  }
