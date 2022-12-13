@@ -5,22 +5,28 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/register" method="post">
-        <div>
-            <label>
-                <input type="email" placeholder="E-mail" autocomplete="off" required>
-            </label>
+    <div class="form-container">
+        <div class="form-box">
+            <h1 class="form-h1">Take advantage of the scrum methodology</h1>
+            <form action="/register" method="post">
+                    <div>
+                        <label>
+                            <input class="input-form" name="login" type="email" placeholder="E-mail" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input class="input-form" name="password" type="Password" placeholder="Password" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input class="input-form" type="password" placeholder="Confirm password" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <a href="/login" class="link">Already has an account?</a>
+                    <input class="button" type="submit" value="Register">
+            </form>
         </div>
-        <div>
-            <label>
-                <input type="password" placeholder="Password" autocomplete="off" required>
-            </label>
-        </div>
-        <div>
-            <label>
-                <input type="password" placeholder="Confirm password" autocomplete="off" required>
-            </label>
-        </div>
-        <input type="submit" value="Register">
-    </form>
+    </div>
 {% endblock %}
