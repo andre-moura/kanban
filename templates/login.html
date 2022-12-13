@@ -5,21 +5,26 @@
 {% endblock %}
 
 {% block main %}
-    <div class="box-login">
-        <h1>Welcome to the best Kanban ever created!</h1>
-        <form class="form" action="/login" method="post">
-                <div>
-                    <label>
-                        <input class="input-form" name="login" type="email" placeholder="E-mail" autocomplete="off" required>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <input class="input-form" name="password" type="Password" placeholder="Password" autocomplete="off" required>
-                    </label>
-                </div>
-                <a href="" class="link">Forgot password?</a>
-                <input class="button" type="submit" value="Sign In">
-        </form>
+    <div class="login-container">
+        <div class="login-image">
+            <img src="static\img\login-image.svg">
+        </div>
+        <div class="box-login">
+            <h1>Welcome to the best Kanban ever created!</h1>
+            <form class="form" action="/login" method="post">
+                    <div>
+                        <label>
+                            <input class="input-form" name="login" type="email" placeholder="E-mail" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input class="input-form" name="password" type="Password" placeholder="Password" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <a href="" class="link">Forgot password?</a>
+                    <input class="button" type="submit" value="Sign In">
+            </form>
+        </div>
     </div>
 {% endblock %}

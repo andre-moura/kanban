@@ -61,10 +61,10 @@ nav ul li.logo{
 
 .input-form {
     display: block;
-    width: 100%;
+    width: 96%;
     height: 40px;
     margin-top: 3%;
-    padding: 0.5% 1.5%;
+    padding: 1px 1.5%;
 }
 
 .box-login {
@@ -79,8 +79,26 @@ nav ul li.logo{
     color: var(--light-black);
 }
 
+.login-image {
+    width: 45%;
+}
+
+.login-image img {
+    width: 100%
+}
+
 .link:hover {
     color: var(--dark-blue);
+}
+
+.login-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 50px 20px;
+    margin: auto;
 }
 
 .button {
@@ -96,4 +114,13 @@ nav ul li.logo{
     text-decoration: none;
     margin-top: 3%;
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .login-image {
+        display: none;
+    }
+    .box-login {
+        width: 100%;
+    }
 }
