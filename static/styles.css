@@ -9,6 +9,7 @@
     --light-brown: #8F5849;
     --light-grey: #ebecf0;
     --dark-grey: rgb(131, 140, 145);
+    --hover-task: rgba(255, 255, 255, 0.4);
 }
 
 body {
@@ -32,6 +33,7 @@ nav a {
     color: var(--text-color);
     text-decoration: none;
     display: flex;
+    cursor: pointer;
 }
 
 nav a:hover {
@@ -48,7 +50,6 @@ nav ul {
 
 nav ul li {
     padding: 1%;
-    cursor: pointer;
 }
 
 nav ul li.items {
@@ -144,15 +145,10 @@ nav ul li.logo{
 
 .item {
     background-color: var(--light-grey);
-    border-radius: 3px;
-    margin: 10px 10px;
+    border-radius: 3px 3px 0px 0px;
+    margin: 10px 10px 0px 10px;
     padding: 10px;
     width: 250px;
-    /* min-width: 250px; */
-}
-
-.item--over {
-    opacity: 0.5;
 }
 
 .task {
@@ -165,6 +161,52 @@ nav ul li.logo{
     background-color: var(--text-hover);
     padding: 6px 8px 2px;
     border-radius: 2px;
+    box-shadow: var(--dark-grey) 1px 1px 1px;
+}
+
+.task:hover {
+    background-color: var(--hover-task);
+}
+
+.list-input {
+    background-color: var(--light-grey);
+    font-size: 1em;
+    font-weight: 100;
+    margin: 0 0 6px 1%;
+    border: none;
+    width: 220px;
+    cursor: pointer;
+}
+
+.add-card {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+    border-radius: 3px;
+    cursor: pointer;
+
+    border-radius: 0 0 3px 3px;
+    margin: 0px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    width: 250px;
+}
+
+.add-card:hover {
+    background-color: var(--hover-task);
+    color:#172b4d;
+}
+
+.add-list {
+    background-color: rgba(255,255, 255, 0.3);
+    color: var(--text-color);
+    border-radius: 3px;
+    margin: 10px 10px;
+    padding: 10px;
+    width: 250px;
+    cursor: pointer;
+}
+.btn-pencil {
+    float: right;
+    cursor: pointer;
 }
 
 @media (max-width: 1000px) {

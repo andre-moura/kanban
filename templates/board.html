@@ -8,25 +8,43 @@
     <div class="grid-board">
         <div class="item-box">
             <div class="item">
-                Todo
+                <a class="fa-solid fa-bars btn-pencil"></a>
+                <input class="list-input" type="text" value="Todo"> 
                 <div class="task" id="task1" draggable="true">
-                    Olá
+                    <i class="fa-solid fa-pencil btn-pencil"></i>
+                    <span>Olá aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasa
+                        asddasdfas
+                        dsaasd
+                    </span>
                 </div>
             </div>
+            <div class="add-card">
+                <a type="button" class="fa-solid fa-plus"></a> Add card
+            </div>
         </div>
+
         <div class="item-box">
             <div class="item">
-                Doing
-                <div class="task" id="task2" draggable="true">
-                    Olá
+                <a class="fa-solid fa-bars btn-pencil"></a>
+                <input class="list-input" type="text" value="Todo"> 
+                <div class="task" id="task1" draggable="true">
+                    <i class="fa-solid fa-pencil btn-pencil"></i>
+                    <span>
+                        teste 1
+                    </span>
                 </div>
             </div>
-        </div>
-        <div class="item-box">
-            <div class="item">
-                Done
+            <div class="add-card">
+                <a type="button" class="fa-solid fa-plus"></a> Add card
             </div>
         </div>
+
+        <div>
+            <div class="add-list">
+                <a type="button" class="fa-solid fa-plus"></a> Add another list
+            </div>
+        </div>
+        
         <script>
             const body = document.getElementsByTagName('body');
             body[0].style.background = 'var(--dark-grey)'
@@ -44,7 +62,6 @@
                 });
 
                 dropZone.addEventListener('dragleave', e => {
-                    dropZone.classList.remove('item--over');
                 });
 
                 dropZone.addEventListener('drop', e => {
@@ -53,7 +70,6 @@
                     const droppedElement = document.getElementById(droppedElementId);
 
                     dropZone.appendChild(droppedElement);
-                    dropZone.classList.remove('item--over');
                 });
             }
         </script>
