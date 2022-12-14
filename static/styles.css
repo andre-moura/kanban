@@ -63,7 +63,7 @@ nav ul li.logo{
 .input-form {
     display: block;
     width: 96%;
-    height: 40px;
+    height: 46px;
     margin-top: 4%;
     padding: 1px 1.5%;
 }
@@ -125,10 +125,38 @@ nav ul li.logo{
     color: var(--light-brown);
 }
 
-.login-img {
+.blob-img {
     background-image: url("img/blob.svg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+.grid-board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.item {
+    /* background-color: var(--ds-background-accent-gray-subtlest,#ebecf0); */
+    background-color: var(--blue);
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    position: relative;
+    white-space: normal;
+    width: 100% !important;
+    margin: 10px 5px;
+}
+
+.item--over {
+    opacity: 0.5;
+}
+
+.task {
+    background-color: #1d2226;
 }
 
 @media (max-width: 1000px) {

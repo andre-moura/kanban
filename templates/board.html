@@ -5,5 +5,45 @@
 {% endblock %}
 
 {% block main %}
+    <div class="grid-board">
+        <div class="item">
+            Todo
+            <div class="task" id="task1" draggable="true">
+                Olá
+            </div>
+        </div>
+        <div class="item">
+            Doing
 
+        </div>
+        <div class="item">
+            Done
+        </div>
+        <script>
+            const draggableElement = document.querySelector('.task')
+            draggableElement.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text/plain', draggableElement.id)
+            });
+
+            for (const dropZone of document.querySelectorAll('.item')) {
+                dropZone.addEventListener('dragover', e => {
+                    e.preventDefault();
+                    dropZone.classList.add('item--over')
+                });
+
+                dropZone.addEventListener('dragleave', e => {
+                    dropZone.classList.remove('item--over');
+                });
+
+                dropZone.addEventListener('drop', e => {
+                    e.preventDefault();
+                    const droppedElementId = e.dataTransfer.getData('text/plain');
+                    const droppedElement = document.getElementById(droppedElementId);
+
+                    dropZone.appendChild(droppedElement);
+                    dropZone.classList.remove('item--over');
+                });
+            }
+        </script>
+    </div>
 {% endblock %}
