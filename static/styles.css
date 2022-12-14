@@ -7,6 +7,8 @@
     --dark-blue: #0a66c2;
     --blue: #2977c9;
     --light-brown: #8F5849;
+    --light-grey: #ebecf0;
+    --dark-grey: rgb(131, 140, 145);
 }
 
 body {
@@ -14,6 +16,10 @@ body {
     margin: 0;
     font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
     font: 1.2rem;
+}
+
+html, body {
+    height: 100%;
 }
 
 nav {
@@ -132,23 +138,17 @@ nav ul li.logo{
 }
 
 .grid-board {
+    padding: 0 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }
 
 .item {
-    /* background-color: var(--ds-background-accent-gray-subtlest,#ebecf0); */
-    background-color: var(--blue);
+    background-color: var(--light-grey);
     border-radius: 3px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    max-height: 100%;
-    position: relative;
-    white-space: normal;
-    width: 100% !important;
-    margin: 10px 5px;
+    margin: 10px 10px;
+    padding: 10px;
+    width: 250px;
+    /* min-width: 250px; */
 }
 
 .item--over {
@@ -156,7 +156,15 @@ nav ul li.logo{
 }
 
 .task {
-    background-color: #1d2226;
+    word-wrap: break-word;
+    color: var(--ds-text,#172b4d);
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: var(--text-hover);
+    padding: 6px 8px 2px;
+    border-radius: 2px;
 }
 
 @media (max-width: 1000px) {

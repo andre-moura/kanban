@@ -6,23 +6,30 @@
 
 {% block main %}
     <div class="grid-board">
-        <div class="item">
-            Todo
-            <div class="task" id="task1" draggable="true">
-                Olá
+        <div class="item-box">
+            <div class="item">
+                Todo
+                <div class="task" id="task1" draggable="true">
+                    Olá
+                </div>
             </div>
         </div>
-        <div class="item">
-            Doing
-            <div class="task" id="task2" draggable="true">
-                Olá
+        <div class="item-box">
+            <div class="item">
+                Doing
+                <div class="task" id="task2" draggable="true">
+                    Olá
+                </div>
             </div>
         </div>
-        <div class="item">
-            Done
+        <div class="item-box">
+            <div class="item">
+                Done
+            </div>
         </div>
         <script>
-            // const draggableElement = document.querySelectorAll('.task')
+            const body = document.getElementsByTagName('body');
+            body[0].style.background = 'var(--dark-grey)'
 
             for (const draggableElement of document.querySelectorAll('.task')) {
                 draggableElement.addEventListener('dragstart', e => {
