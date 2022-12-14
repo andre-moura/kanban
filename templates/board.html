@@ -14,16 +14,21 @@
         </div>
         <div class="item">
             Doing
-
+            <div class="task" id="task2" draggable="true">
+                Olá
+            </div>
         </div>
         <div class="item">
             Done
         </div>
         <script>
-            const draggableElement = document.querySelector('.task')
-            draggableElement.addEventListener('dragstart', e => {
-                e.dataTransfer.setData('text/plain', draggableElement.id)
-            });
+            // const draggableElement = document.querySelectorAll('.task')
+
+            for (const draggableElement of document.querySelectorAll('.task')) {
+                draggableElement.addEventListener('dragstart', e => {
+                    e.dataTransfer.setData('text/plain', draggableElement.id)
+                });
+            }
 
             for (const dropZone of document.querySelectorAll('.item')) {
                 dropZone.addEventListener('dragover', e => {
