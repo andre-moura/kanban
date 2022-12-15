@@ -144,12 +144,20 @@ nav ul li.logo{
     height: 85%;
 }
 
+.item-box {
+    height: 100%;
+}
+
 .item {
     background-color: var(--light-grey);
     border-radius: 3px 3px 0px 0px;
     margin: 10px 10px 0px 10px;
     padding: 10px;
     width: 250px;
+}
+
+.item--over {
+    opacity: 0.5;
 }
 
 .task {
@@ -171,7 +179,7 @@ nav ul li.logo{
 
 .list-input {
     background-color: var(--light-grey);
-    font-size: 1em;
+    font-size: 0.8750em;
     font-weight: 100;
     margin: 0 0 6px 1%;
     border: none;
@@ -205,13 +213,67 @@ nav ul li.logo{
     width: 250px;
     cursor: pointer;
 }
+
+.h3 {
+    margin: 10px;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
 .btn-icons {
     float: right;
     cursor: pointer;
 }
+.grid-projects {
+    display: flex;
+}
 
-.item-box {
-    height: 100%;
+.add-project {
+    background-color: rgba(255,255, 255, 0.3);
+    color: var(--text-color);
+    cursor: pointer;
+    width: 180px;
+    height: 80px;
+    border-radius: 3px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.add-project:hover {
+    background-color: var(--hover-task);
+}
+
+.add-project i {
+    font-size: 2em;
+}
+
+.project {
+    background-color: var(--light-black);
+    color: var(--text-color);
+    cursor: pointer;
+    width: 180px;
+    height: 80px;
+    border-radius: 3px;
+    margin: 10px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.tag-project {
+    border-radius: 3px;
+    background-color: var(--ds-background-accent-gray-subtler, rgba(255, 255, 255, 0.69));
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 16px;
+    align-items: center;
+    color: var(--ds-text, #172B4D);
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 0 0 10px 0;
 }
 
 @media (max-width: 1000px) {

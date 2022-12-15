@@ -5,5 +5,51 @@
 {% endblock %}
 
 {% block main %}
-
+        <section>
+            <h3 class="h3"><i class="fa-solid fa-pager"></i> Popular templates</h3>
+            <div class="grid-projects">
+                <div class="project">
+                    <div class="tag-project">
+                        Template
+                    </div>
+                    Kanban
+                </div>
+                <div class="project">
+                    <div class="tag-project">
+                        Template
+                    </div>
+                    Project Management
+                </div>
+                <div class="project">
+                    <div class="tag-project">
+                        Template
+                    </div>
+                    Remote Team Hub
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="h3"><i class="fa-solid fa-briefcase"></i> Your Workspaces</h3>
+            <div class="grid-projects">
+                <div class="project">
+                    Projeto X
+                </div>
+                <div class="add-project" id="add-project">
+                    <i class="fa-solid fa-plus">
+    
+                    </i>
+                </div>
+    
+                <script>
+                    // Changing cplor of body
+                    const body = document.getElementsByTagName('body');
+                    body[0].style.background = 'var(--dark-grey)'
+                    
+                    const addProject = document.getElementById('add-project');
+                    addProject.addEventListener('click', e => {
+                    alert('Not implemented');
+                    })
+                </script>
+            </div>
+        </section>
 {% endblock %}

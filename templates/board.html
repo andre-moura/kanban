@@ -8,40 +8,40 @@
     <div class="grid-board">
         <div class="item-box">
             <div class="item">
-                <a class="fa-solid fa-bars btn-icons btn-bar"></a>
-                <input class="list-input" type="text" value="Todo"> 
+                <i class="fa-solid fa-bars btn-icons btn-bar"></i>
+                <input class="list-input" type="text" value="To do"> 
                 <div class="task" id="task1" draggable="true">
                     <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
-                    <span>Olá aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasa
-                        asddasdfas
-                        dsaasd
+                    <span>
+                        Create a login page
                     </span>
                 </div>
             </div>
             <div class="add-card">
-                <a type="button" class="fa-solid fa-plus"></a> Add card
+                <i type="button" class="fa-solid fa-plus"></i> Add card
             </div>
         </div>
 
+       
         <div class="item-box">
             <div class="item">
-                <a class="fa-solid fa-bars btn-icons"></a>
-                <input class="list-input" type="text" value="Todo"> 
+                <i class="fa-solid fa-bars btn-icons btn-bar"></i>
+                <input class="list-input" type="text" value="Doing"> 
                 <div class="task" id="task2" draggable="true">
-                    <i class="fa-solid fa-pencil btn-icons"></i>
+                    <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
                     <span>
-                        teste
+                        Create login endpoint
                     </span>
                 </div>
             </div>
             <div class="add-card">
-                <a type="button" class="fa-solid fa-plus"></a> Add card
+                <i type="button" class="fa-solid fa-plus"></i> Add card
             </div>
         </div>
 
         <div>
-            <div class="add-list">
-                <a type="button" class="fa-solid fa-plus"></a> Add another list
+            <div class="add-list" id="add-list">
+                <i type="button" class="fa-solid fa-plus"></i> Add another list
             </div>
         </div>
         
@@ -65,6 +65,7 @@
                 });
 
                 dropZone.addEventListener('dragleave', e => {
+                    dropZone.classList.remove('item--over');
                 });
 
                 dropZone.addEventListener('drop', e => {
@@ -72,23 +73,36 @@
                     const droppedElementId = e.dataTransfer.getData('text/plain');
                     const droppedElement = document.getElementById(droppedElementId);
                     dropZone.children[0].appendChild(droppedElement);
+                    dropZone.classList.remove('item--over');
                 });
             }
 
             // Adding click event in the bar button
             for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
                 btnPencil.addEventListener('click', e => {
-                    alert('Not implemented yet!');
+                    alert('Pencil event not implemented!');
                 });
             }
 
             // Adding click event in the pencil button
             for (const btnBar of document.getElementsByClassName('btn-bar')) {
                 btnBar.addEventListener('click', e => {
-                    alert('Not implemented!');
+                    alert('Bar event not implemented!');
                 });
             }
             
+            // Adding click event in the add card button
+            for (const btnAddCard of document.getElementsByClassName('add-card')) {
+                btnAddCard.addEventListener('click', e => {
+                    alert('Add card not implemented');
+                });
+            }
+
+            // Adding click event in the add list button
+            const btnAddList = document.getElementById('add-list');
+            btnAddList.addEventListener('click', e => {
+                alert('Add list not implemented');
+            });
         </script>
     </div>
 {% endblock %}
