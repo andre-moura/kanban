@@ -141,6 +141,7 @@ nav ul li.logo{
 .grid-board {
     padding: 0 10px;
     display: flex;
+    height: 85%;
 }
 
 .item {
@@ -204,9 +205,13 @@ nav ul li.logo{
     width: 250px;
     cursor: pointer;
 }
-.btn-pencil {
+.btn-icons {
     float: right;
     cursor: pointer;
+}
+
+.item-box {
+    height: 100%;
 }
 
 @media (max-width: 1000px) {

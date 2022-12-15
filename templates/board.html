@@ -8,10 +8,10 @@
     <div class="grid-board">
         <div class="item-box">
             <div class="item">
-                <a class="fa-solid fa-bars btn-pencil"></a>
+                <a class="fa-solid fa-bars btn-icons btn-bar"></a>
                 <input class="list-input" type="text" value="Todo"> 
                 <div class="task" id="task1" draggable="true">
-                    <i class="fa-solid fa-pencil btn-pencil"></i>
+                    <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
                     <span>Olá aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasa
                         asddasdfas
                         dsaasd
@@ -25,12 +25,12 @@
 
         <div class="item-box">
             <div class="item">
-                <a class="fa-solid fa-bars btn-pencil"></a>
+                <a class="fa-solid fa-bars btn-icons"></a>
                 <input class="list-input" type="text" value="Todo"> 
-                <div class="task" id="task1" draggable="true">
-                    <i class="fa-solid fa-pencil btn-pencil"></i>
+                <div class="task" id="task2" draggable="true">
+                    <i class="fa-solid fa-pencil btn-icons"></i>
                     <span>
-                        teste 1
+                        teste
                     </span>
                 </div>
             </div>
@@ -46,16 +46,19 @@
         </div>
         
         <script>
+            // Changing cplor of body
             const body = document.getElementsByTagName('body');
             body[0].style.background = 'var(--dark-grey)'
 
+            // Adding drag event in the task
             for (const draggableElement of document.querySelectorAll('.task')) {
                 draggableElement.addEventListener('dragstart', e => {
                     e.dataTransfer.setData('text/plain', draggableElement.id)
                 });
             }
 
-            for (const dropZone of document.querySelectorAll('.item')) {
+            // Adding drag event in the task list
+            for (const dropZone of document.querySelectorAll('.item-box')) {
                 dropZone.addEventListener('dragover', e => {
                     e.preventDefault();
                     dropZone.classList.add('item--over')
@@ -68,10 +71,24 @@
                     e.preventDefault();
                     const droppedElementId = e.dataTransfer.getData('text/plain');
                     const droppedElement = document.getElementById(droppedElementId);
-
-                    dropZone.appendChild(droppedElement);
+                    dropZone.children[0].appendChild(droppedElement);
                 });
             }
+
+            // Adding click event in the bar button
+            for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
+                btnPencil.addEventListener('click', e => {
+                    alert('Not implemented yet!');
+                });
+            }
+
+            // Adding click event in the pencil button
+            for (const btnBar of document.getElementsByClassName('btn-bar')) {
+                btnBar.addEventListener('click', e => {
+                    alert('Not implemented!');
+                });
+            }
+            
         </script>
     </div>
 {% endblock %}
