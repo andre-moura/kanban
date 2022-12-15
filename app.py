@@ -35,5 +35,11 @@ def board():
         return render_template('board.html')
 
 
+@app.route('/members')
+def members():
+    if request.method == "GET":
+        return render_template('members.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True, host='localhost')

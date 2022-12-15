@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Members
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="members-container">
+            <h3 class="h3"><i class="fa-solid fa-user"></i> Members</h3>
+            <input placeholder="E-mail" class="input-members"> <input type="submit" value="Invite Workspace Members" class="simple-btn">
+            <hr>
+            <input placeholder="Filter by name" class="input-members"> 
+            <div class="table-container">
+                <table>
+                    <tr>
+                      <td>Peter</td>
+                      <td>Peter@hotmail.com</td>
+                    </tr>
+                    <tr>
+                      <td>Cleveland</td>
+                      <td>Cleveland@gmail.com</td>
+                    </tr>
+                  </table>
+            </div>
+            
+            <script>
+                // Changing cplor of body
+                const body = document.getElementsByTagName('body');
+                body[0].style.background = 'var(--dark-grey)'
+            </script>
+        </div>
+    </main>
+{% endblock %}
