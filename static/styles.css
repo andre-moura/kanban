@@ -16,15 +16,16 @@
     src: url("/static//fonts/GreatVibes-Regular.ttf");
 }
 
+html {
+    height: 100vh;
+}
+
 body {
     padding: 0;
     margin: 0;
     font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
     font: 1.2rem;
-}
-
-html, body {
-    height: 100%;
+    height: 100vh;
 }
 
 nav {
@@ -64,6 +65,14 @@ nav ul li.items {
     order: 3;
 }
 
+main {
+}
+
+hr {
+    background-color: #dfe1e6;
+    color: #dfe1e6;
+}
+
 nav ul li.logo{
     flex: 1;
     color: white;
@@ -77,8 +86,7 @@ nav ul li.logo{
 table {
     border-collapse: collapse;
     width: 100%;
-    background-color: var(--light-black);
-    color: var(--text-color);
+    color: var(--light-black);
 }
   
 th, td {
@@ -170,7 +178,7 @@ tr:hover {
 .grid-board {
     padding: 0 10px;
     display: flex;
-    height: 85%;
+    height: 90vh;
 }
 
 .item-box {
@@ -306,22 +314,27 @@ tr:hover {
 }
 
 .input-members {
+    width: 250px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    line-height: 20px;
+    outline: none;
+    padding: 8px 12px;
+    transition-duration: 85ms;
+    transition-property: background-color,border-color,box-shadow;
+    transition-timing-function: ease;
     color: var(--ds-text,#172b4d);
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
-    width: 300px;
-    height: 28px;
-    background-color: var(--ds-background-input,#fff);
-    padding: 7px 5px 3px 5px;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #fafbfc;
     border: none;
-    background-color: var(--light-grey);
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 0px 2px var(--ds-border-input,#dfe1e6);
 }
 
 .input-members:hover {
-    background-color:  #ebecf0c0;
-}
-
-.simple-btn:hover {
-    background-color:  #ebecf0c0;
+    background-color: var(--ds-background-input-hovered,#ebecf0);
 }
 
 input:focus {
@@ -329,26 +342,59 @@ input:focus {
 }
 
 .simple-btn {
-    background-color: var(--light-grey);
-    color: var(--light-black);
-    font-size: 1em;
-    border-radius: 3px;
-    padding: 10px;
+    color: var(--ds-text,#172b4d);
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
     border: none;
-    height: 40px;
-    font-weight: normal;
-    text-decoration: none;
-    margin-top: 10px;
-    cursor: pointer;    
-    height: 38px;
+    width: 200px;
+    height: 35px;
+    --dynamic-background-color: #FAFBFC;
+    --dynamic-icon-color: #42526E;
+    --dynamic-text-color: #172B4D;
+    --dynamic-text-color-transparent: hsla(218,54%,19.6%,0.16);
+    --dynamic-button-background-color: rgba(0, 0, 0, 0.1);
+    --dynamic-button-background-color-hovered: rgba(0, 0, 0, 0.2);
+    --dynamic-button-background-color-pressed: rgba(0, 0, 0, 0.3);
+    --dynamic-nav-item-background-color-hovered: hsla(0, 100%, 0%, 0.08);
+    --dynamic-nav-item-background-color-pressed: hsla(0, 100%, 0%, 0.16);
+}
+
+.simple-btn:hover {
+    color: var(--black);
+    background-color: #ebecf0a2;
 }
 
 .members-container {
     padding: 25px;
 }
 
-.table-container {
-    margin: 20px 0 0 0;
+
+.div-row {
+    border-bottom: 1px solid var(--ds-border,#091e4221);
+    padding: 12px 0;
+}
+
+.container-table {
+    display: flex;
+    min-height: 40px;
+    padding: 12px 0;
+    position: relative;
+    color: var(--ds-text,#172b4d);
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    --dynamic-background-color: #FAFBFC;
+    --dynamic-icon-color: #42526E;
+    --dynamic-text-color: #172B4D;
+    --dynamic-text-color-transparent: hsla(218,54%,19.6%,0.16);
+    --dynamic-button-background-color: rgba(0, 0, 0, 0.1);
+    --dynamic-button-background-color-hovered: rgba(0, 0, 0, 0.2);
+    --dynamic-button-background-color-pressed: rgba(0, 0, 0, 0.3);
+    --dynamic-nav-item-background-color-hovered: hsla(0, 100%, 0%, 0.08);
+    --dynamic-nav-item-background-color-pressed: hsla(0, 100%, 0%, 0.16);
 }
 
 @media (max-width: 1000px) {

@@ -8,10 +8,17 @@
     <main>
         <div class="members-container">
             <h3 class="h3"><i class="fa-solid fa-user"></i> Members</h3>
-            <input placeholder="E-mail" class="input-members"> <input type="submit" value="Invite Workspace Members" class="simple-btn">
-            <hr>
-            <input placeholder="Filter by name" class="input-members"> 
-            <div class="table-container">
+            <div class="div-row">
+                <h3>Invite members to join you</h3>
+                <p>
+                    Anyone with an invite link can join this Free Workspace. You can also disable and create a new invite link for this Workspace at any time.
+                </p>
+                <button type="submit" class="simple-btn "><i class="fa-solid fa-link"></i> Invite with link</h3></button> 
+            </div>
+            <div class="div-row">
+                <input placeholder="Filter by name" class="input-members"> 
+            </div>
+            <div class="container-table">
                 <table>
                     <tr>
                       <td>Peter</td>
@@ -26,8 +33,8 @@
             
             <script>
                 // Changing cplor of body
-                const body = document.getElementsByTagName('body');
-                body[0].style.background = 'var(--dark-grey)'
+                // const body = document.getElementsByTagName('body');
+                // body[0].style.background = 'var(--dark-grey)'
             </script>
         </div>
     </main>

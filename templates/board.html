@@ -5,104 +5,117 @@
 {% endblock %}
 
 {% block main %}
-    <div class="grid-board">
-        <div class="item-box">
-            <div class="item">
-                <i class="fa-solid fa-bars btn-icons btn-bar"></i>
-                <input class="list-input" type="text" value="To do"> 
-                <div class="task" id="task1" draggable="true">
-                    <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
-                    <span>
-                        Create a login page
-                    </span>
+    <main>
+        <div class="grid-board">
+            <div class="item-box">
+                <div class="item">
+                    <i class="fa-solid fa-bars btn-icons btn-bar"></i>
+                    <input class="list-input" type="text" value="To do"> 
+                    <div class="task" id="task1" draggable="true">
+                        <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
+                        <span>
+                            Create a login page
+                        </span>
+                    </div>
+                </div>
+                <div class="add-card">
+                    <i type="button" class="fa-solid fa-plus"></i> Add card
                 </div>
             </div>
-            <div class="add-card">
-                <i type="button" class="fa-solid fa-plus"></i> Add card
-            </div>
-        </div>
 
-       
-        <div class="item-box">
-            <div class="item">
-                <i class="fa-solid fa-bars btn-icons btn-bar"></i>
-                <input class="list-input" type="text" value="Doing"> 
-                <div class="task" id="task2" draggable="true">
-                    <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
-                    <span>
-                        Create login endpoint
-                    </span>
-                </div>
-            </div>
-            <div class="add-card">
-                <i type="button" class="fa-solid fa-plus"></i> Add card
-            </div>
-        </div>
-
-        <div>
-            <div class="add-list" id="add-list">
-                <i type="button" class="fa-solid fa-plus"></i> Add another list
-            </div>
-        </div>
         
-        <script>
-            // Changing cplor of body
-            const body = document.getElementsByTagName('body');
-            body[0].style.background = 'var(--dark-grey)'
+            <div class="item-box">
+                <div class="item">
+                    <i class="fa-solid fa-bars btn-icons btn-bar"></i>
+                    <input class="list-input" type="text" value="Doing"> 
+                    <div class="task" id="task2" draggable="true">
+                        <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
+                        <span>
+                            Create login endpoint
+                        </span>
+                    </div>
+                </div>
+                <div class="add-card">
+                    <i type="button" class="fa-solid fa-plus"></i> Add card
+                </div>
+            </div>
 
-            // Adding drag event in the task
-            for (const draggableElement of document.querySelectorAll('.task')) {
-                draggableElement.addEventListener('dragstart', e => {
-                    e.dataTransfer.setData('text/plain', draggableElement.id)
-                });
-            }
+            <div>
+                <div class="add-list" id="add-list">
+                    <i type="button" class="fa-solid fa-plus"></i> Add another list
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Changing cplor of body
+        const body = document.getElementsByTagName('body');
+        body[0].style.background = 'var(--dark-grey)'
 
-            // Adding drag event in the task list
-            for (const dropZone of document.querySelectorAll('.item-box')) {
-                dropZone.addEventListener('dragover', e => {
-                    e.preventDefault();
-                    dropZone.classList.add('item--over')
-                });
-
-                dropZone.addEventListener('dragleave', e => {
-                    dropZone.classList.remove('item--over');
-                });
-
-                dropZone.addEventListener('drop', e => {
-                    e.preventDefault();
-                    const droppedElementId = e.dataTransfer.getData('text/plain');
-                    const droppedElement = document.getElementById(droppedElementId);
-                    dropZone.children[0].appendChild(droppedElement);
-                    dropZone.classList.remove('item--over');
-                });
-            }
-
-            // Adding click event in the bar button
-            for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
-                btnPencil.addEventListener('click', e => {
-                    alert('Pencil event not implemented!');
-                });
-            }
-
-            // Adding click event in the pencil button
-            for (const btnBar of document.getElementsByClassName('btn-bar')) {
-                btnBar.addEventListener('click', e => {
-                    alert('Bar event not implemented!');
-                });
-            }
-            
-            // Adding click event in the add card button
-            for (const btnAddCard of document.getElementsByClassName('add-card')) {
-                btnAddCard.addEventListener('click', e => {
-                    alert('Add card not implemented');
-                });
-            }
-
-            // Adding click event in the add list button
-            const btnAddList = document.getElementById('add-list');
-            btnAddList.addEventListener('click', e => {
-                alert('Add list not implemented');
+        // Adding drag event in the task
+        for (const draggableElement of document.querySelectorAll('.task')) {
+            draggableElement.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text/plain', draggableElement.id)
+                // let deg = e.clientX - window.innerWidth / 2 > 0 ? -3: 3;
+                // e.currentTarget.style.transform = `rotate(${deg}deg)`;
+                console.log(e.clientX - window.innerWidth / 2)
             });
-        </script>
-    </div>
+        }
+
+        // Adding drag event in the task list
+        for (const dropZone of document.querySelectorAll('.item-box')) {
+            dropZone.addEventListener('dragover', e => {
+                e.preventDefault();
+                dropZone.classList.add('item--over')
+            });
+
+            dropZone.addEventListener('dragleave', e => {
+                dropZone.classList.remove('item--over');
+            });
+            
+            dropZone.addEventListener('dragend', e => {
+                const droppedElementId = e.dataTransfer.getData('text/plain');
+                const droppedElement = document.getElementById(droppedElementId);
+                droppedElement.style.transform = 'rotate(0deg)';
+            });
+
+            dropZone.addEventListener('drop', e => {
+                e.preventDefault();
+                const droppedElementId = e.dataTransfer.getData('text/plain');
+                const droppedElement = document.getElementById(droppedElementId);
+
+                // droppedElement.style.transform = 'rotate(0deg)';
+                
+                dropZone.children[0].appendChild(droppedElement);
+                dropZone.classList.remove('item--over');
+            });
+        }
+
+        // Adding click event in the bar button
+        for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
+            btnPencil.addEventListener('click', e => {
+                alert('Pencil event not implemented!');
+            });
+        }
+
+        // Adding click event in the pencil button
+        for (const btnBar of document.getElementsByClassName('btn-bar')) {
+            btnBar.addEventListener('click', e => {
+                alert('Bar event not implemented!');
+            });
+        }
+        
+        // Adding click event in the add card button
+        for (const btnAddCard of document.getElementsByClassName('add-card')) {
+            btnAddCard.addEventListener('click', e => {
+                alert('Add card not implemented');
+            });
+        }
+
+        // Adding click event in the add list button
+        const btnAddList = document.getElementById('add-list');
+        btnAddList.addEventListener('click', e => {
+            alert('Add list not implemented');
+        });
+    </script>
 {% endblock %}
