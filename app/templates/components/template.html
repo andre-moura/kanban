@@ -1,0 +1,26 @@
+{% macro template(name) %}
+    <div class="project">
+        <div class="tag-project">
+            Template
+        </div>
+        {{name}}
+    </div>
+{% endmacro %}
+
+{% macro project(name) %}
+<div class="project">
+    {{ name }}
+</div>
+{% endmacro %}
+
+{% macro addProject() %}
+    <div class="add-project" id="add-project">
+        <i class="fa-solid fa-plus">
+
+        </i>
+    </div>
+{% endmacro %}
+
+{% macro title(title, icon) %}
+    <h3 class="h3"><i class="fa-solid fa-{{icon}}"></i> {{ title }}</h3>
+{% endmacro %}

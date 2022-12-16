@@ -261,7 +261,7 @@ tr:hover {
     float: right;
     cursor: pointer;
 }
-.grid-projects {
+.grid-flex {
     display: flex;
 }
 
