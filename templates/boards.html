@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Boards
+{% endblock %}
+
+{% block main %}
+    <h3 class="h3"><i class="fa-solid fa-pager"></i> Popular templates</h3>
+    <div class="grid-projects">
+        <div class="project">
+            <div class="tag-project">
+                Template
+            </div>
+            Kanban
+        </div>
+        <div class="project">
+            <div class="tag-project">
+                Template
+            </div>
+            Project Management
+        </div>
+        <div class="project">
+            <div class="tag-project">
+                Template
+            </div>
+            Remote Team Hub
+        </div>
+    </div>
+    <div class="box-url-template">
+        <a href="#" class="">Browse the template gallery</a>
+    </div>
+    <br>
+    <h3 class="h3"><i class="fa-solid fa-folder"></i> Boards</h3>
+    <div class="div-row box-filter">
+        <select class="input-members">
+            <option value="">Order of creation</option>
+            <option value="">Alphabetically A-Z</option>
+            <option value="">Alphabetically Z-A</option>
+        </select>
+    </div>
+    <div class="grid-projects">
+        <div class="project">
+            Kanban
+        </div>
+        <div class="add-project" id="add-project">
+            <i class="fa-solid fa-plus">
+
+            </i>
+        </div>
+    </div>
+    <script>
+        // Changing cplor of body
+        const body = document.getElementsByTagName('body');
+        body[0].style.background = 'var(--dark-grey)'
+        
+        const addProject = document.getElementById('add-project');
+        addProject.addEventListener('click', e => {
+        alert('Not implemented');
+        })
+    </script>
+{% endblock %}

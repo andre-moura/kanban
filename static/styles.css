@@ -377,6 +377,18 @@ input:focus {
     padding: 12px 0;
 }
 
+.box-url-template {
+    margin: 0 0 0 10px;
+}
+
+.box-url-template  a {
+    color: var(--dark-grey);
+}
+
+.box-filter {
+    margin-left: 10px;
+}
+
 .container-table {
     display: flex;
     min-height: 40px;

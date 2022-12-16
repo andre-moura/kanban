@@ -5,55 +5,53 @@
 {% endblock %}
 
 {% block main %}
-    <main>
-        <div class="members-container">
-            <h3 class="h3"><i class="fa-solid fa-user"></i> Members</h3>
-            <div class="div-row">
-                <h3>Invite members to join you</h3>
-                <p>
-                    Anyone with an invite link can join this Free Workspace. You can also disable and create a new invite link for this Workspace at any time.
-                </p>
-                <button type="submit" class="simple-btn "><i class="fa-solid fa-link"></i> Invite with link</h3></button> 
-            </div>
-            <div class="div-row">
-                <input placeholder="Filter by name" class="input-members" id="filter" onkeyup="filter()"> 
-            </div>
-            <div class="container-table">
-                <table id="table">
-                    <tr>
-                      <td>Peter</td>
-                      <td>Peter@hotmail.com</td>
-                    </tr>
-                    <tr>
-                      <td>Cleveland</td>
-                      <td>Cleveland@gmail.com</td>
-                    </tr>
-                  </table>
-            </div>
-            
-            <script>
-                function filter() {
-                    var input, filter, table, tr, td, i, txtValue;
-                    input = document.getElementById("filter");
-                    filter = input.value.toUpperCase();
-                    table = document.getElementById("table");
-                    tr = table.getElementsByTagName("tr");
-                    for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[0];
-                        if (td) {
-                            txtValue = td.textContent || td.innerText;
-                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                tr[i].style.display = "";
-                            } else {
-                                tr[i].style.display = "none";
-                            }
-                        }       
-                    }
-                }
-                // Changing cplor of body
-                // const body = document.getElementsByTagName('body');
-                // body[0].style.background = 'var(--dark-grey)'
-            </script>
+    <div class="members-container">
+        <h3 class="h3"><i class="fa-solid fa-user"></i> Members</h3>
+        <div class="div-row">
+            <h3>Invite members to join you</h3>
+            <p>
+                Anyone with an invite link can join this Free Workspace. You can also disable and create a new invite link for this Workspace at any time.
+            </p>
+            <button type="submit" class="simple-btn "><i class="fa-solid fa-link"></i> Invite with link</h3></button> 
         </div>
-    </main>
+        <div class="div-row">
+            <input placeholder="Filter by name" class="input-members" id="filter" onkeyup="filter()"> 
+        </div>
+        <div class="container-table">
+            <table id="table">
+                <tr>
+                    <td>Peter</td>
+                    <td>Peter@hotmail.com</td>
+                </tr>
+                <tr>
+                    <td>Cleveland</td>
+                    <td>Cleveland@gmail.com</td>
+                </tr>
+                </table>
+        </div>
+        
+        <script>
+            function filter() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("filter");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("table");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }       
+                }
+            }
+            // Changing cplor of body
+            // const body = document.getElementsByTagName('body');
+            // body[0].style.background = 'var(--dark-grey)'
+        </script>
+    </div>
 {% endblock %}

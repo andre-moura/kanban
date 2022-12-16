@@ -24,9 +24,15 @@ def register():
 
 
 @app.route('/projects')
-def boards():
+def projects():
     if request.method == "GET":
         return render_template('projects.html')
+
+
+@app.route('/boards')
+def boards():
+    if request.method == "GET":
+        return render_template('boards.html')
 
 
 @app.route('/board')

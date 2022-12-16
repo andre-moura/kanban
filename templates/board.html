@@ -5,48 +5,46 @@
 {% endblock %}
 
 {% block main %}
-    <main>
-        <div class="grid-board">
-            <div class="item-box">
-                <div class="item">
-                    <i class="fa-solid fa-bars btn-icons btn-bar"></i>
-                    <input class="list-input" type="text" value="To do"> 
-                    <div class="task" id="task1" draggable="true">
-                        <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
-                        <span>
-                            Create a login page
-                        </span>
-                    </div>
-                </div>
-                <div class="add-card">
-                    <i type="button" class="fa-solid fa-plus"></i> Add card
+    <div class="grid-board">
+        <div class="item-box">
+            <div class="item">
+                <i class="fa-solid fa-bars btn-icons btn-bar"></i>
+                <input class="list-input" type="text" value="To do"> 
+                <div class="task" id="task1" draggable="true">
+                    <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
+                    <span>
+                        Create a login page
+                    </span>
                 </div>
             </div>
-
-        
-            <div class="item-box">
-                <div class="item">
-                    <i class="fa-solid fa-bars btn-icons btn-bar"></i>
-                    <input class="list-input" type="text" value="Doing"> 
-                    <div class="task" id="task2" draggable="true">
-                        <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
-                        <span>
-                            Create login endpoint
-                        </span>
-                    </div>
-                </div>
-                <div class="add-card">
-                    <i type="button" class="fa-solid fa-plus"></i> Add card
-                </div>
-            </div>
-
-            <div>
-                <div class="add-list" id="add-list">
-                    <i type="button" class="fa-solid fa-plus"></i> Add another list
-                </div>
+            <div class="add-card">
+                <i type="button" class="fa-solid fa-plus"></i> Add card
             </div>
         </div>
-    </main>
+
+    
+        <div class="item-box">
+            <div class="item">
+                <i class="fa-solid fa-bars btn-icons btn-bar"></i>
+                <input class="list-input" type="text" value="Doing"> 
+                <div class="task" id="task2" draggable="true">
+                    <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
+                    <span>
+                        Create login endpoint
+                    </span>
+                </div>
+            </div>
+            <div class="add-card">
+                <i type="button" class="fa-solid fa-plus"></i> Add card
+            </div>
+        </div>
+
+        <div>
+            <div class="add-list" id="add-list">
+                <i type="button" class="fa-solid fa-plus"></i> Add another list
+            </div>
+        </div>
+    </div>
     <script>
         // Changing cplor of body
         const body = document.getElementsByTagName('body');
