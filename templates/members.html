@@ -16,10 +16,10 @@
                 <button type="submit" class="simple-btn "><i class="fa-solid fa-link"></i> Invite with link</h3></button> 
             </div>
             <div class="div-row">
-                <input placeholder="Filter by name" class="input-members"> 
+                <input placeholder="Filter by name" class="input-members" id="filter" onkeyup="filter()"> 
             </div>
             <div class="container-table">
-                <table>
+                <table id="table">
                     <tr>
                       <td>Peter</td>
                       <td>Peter@hotmail.com</td>
@@ -32,6 +32,24 @@
             </div>
             
             <script>
+                function filter() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("filter");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("table");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[0];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }       
+                    }
+                }
                 // Changing cplor of body
                 // const body = document.getElementsByTagName('body');
                 // body[0].style.background = 'var(--dark-grey)'
