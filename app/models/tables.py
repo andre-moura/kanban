@@ -78,3 +78,15 @@ class KanbanList(db.Model):
         pass
 
 
+class Task(db.Model):
+    __tablename__ = 'tasks'
+
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.Text)
+    id_user = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __init__(self, content):
+        self.content = content
+
+    def __repr__(self):
+        pass
