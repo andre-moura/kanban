@@ -30,3 +30,17 @@ class Project(db.Model):
 
     def __repr__(self):
         pass
+    
+
+class ProjectUser:
+    __tablename__ = 'projects_users'
+
+    id_user = db.Column(db.Integer, db.ForeignKey('users.id'))
+    id_project = db.Column(db.Integer, db.ForeignKey('projects.id'))
+
+    def __init__(self, id_user, id_project):
+        self.id_user = id_user
+        self.id_project = id_project
+
+    def __repr__(self):
+        pass
