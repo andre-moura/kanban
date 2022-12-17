@@ -44,3 +44,18 @@ class ProjectUser:
 
     def __repr__(self):
         pass
+
+
+class Kanban(db.Model):
+    __tablename__ = 'kanbans'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    id_project = db.Column(db.Integer, db.ForeignKey('projects.id'))
+
+    def __init__(self, name, id_project):
+        self.name = name
+        self.id_project = id_project
+
+    def __repr__(self):
+        pass
