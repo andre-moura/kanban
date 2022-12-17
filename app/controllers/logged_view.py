@@ -8,15 +8,15 @@ def projects():
 
 
 @app.route('/boards')
-def boards():
+def project():
     if request.method == "GET":
         return render_template('boards.html')
 
 
-@app.route('/board')
+@app.route('/kanban')
 def board():
     if request.method == "GET":
-        return render_template('board.html')
+        return render_template('kanban.html')
 
 
 @app.route('/members')

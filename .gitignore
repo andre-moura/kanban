@@ -1,5 +1,6 @@
 # database name
 kanban
+storage
 
 # python cache
 __pycache__
