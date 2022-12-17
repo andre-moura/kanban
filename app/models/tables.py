@@ -59,3 +59,22 @@ class Kanban(db.Model):
 
     def __repr__(self):
         pass
+
+
+class KanbanList(db.Model):
+    __tablename__ = 'lists'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    order = db.Column(db.Integer)
+    id_kanban = db.Column(db.Integer, db.ForeignKey('kanbans.id'))
+    
+    def __init__(self, name, order, id_kanban):
+        self.name = name
+        self.order = order
+        self.id_kanban = id_kanban
+
+    def __repr__(self):
+        pass
+
+
