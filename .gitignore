@@ -1,8 +1,9 @@
-# database name
-kanban
-storage
+# Database folders
+instance
+migrations
 
-# python cache
+# Python cache
 __pycache__
 
+# Virtual environment
 env
