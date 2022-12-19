@@ -1,30 +1,22 @@
-{% import "macro/template.html" as template %}
 {% extends "layout.html" %}
+{% import "macro/template.html" as template %}
 
 {% block title %}
     Projects
 {% endblock %}
 
 {% block main %}
-        {{ template.title("Popular templates", "pager") }}
-        <div class="grid-flex ">
-            {{ template.template("Kanban") }}
-            {{ template.template("Project Management") }}
-            {{ template.template("Remote Team Hub ") }}
-        </div>
-        {{ template.title("Your Workspaces", "briefcase") }}
-        <div class="grid-flex ">
-            {{ template.project("Projeto X") }}
-            {{ template.addProject() }}
-        </div>
-        <script>
-            // Changing cplor of body
-            const body = document.getElementsByTagName('body');
-            body[0].style.background = 'var(--dark-grey)'
-            
-            const addProject = document.getElementById('add-project');
-            addProject.addEventListener('click', e => {
-            alert('Not implemented');
-            })
-        </script>
+    {{ template.title("Popular templates", "pager") }}
+    <div class="grid-flex ">
+        {{ template.template("Kanban") }}
+        {{ template.template("Project Management") }}
+        {{ template.template("Remote Team Hub ") }}
+    </div>
+    {{ template.title("Your Workspaces", "briefcase") }}
+    <div class="grid-flex ">
+        {{ template.project("Projeto X") }}
+        {{ template.addBox("add-project") }}
+    </div>
+    <script src="{{ url_for('static', filename='js/projects.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/body.js') }}" type="text/javascript"></script>
 {% endblock %}

@@ -265,7 +265,7 @@ tr:hover {
     display: flex;
 }
 
-.add-project {
+.add-box {
     background-color: rgba(255,255, 255, 0.3);
     color: var(--text-color);
     cursor: pointer;
@@ -279,11 +279,11 @@ tr:hover {
     padding: 10px;
 }
 
-.add-project:hover {
+.add-box:hover {
     background-color: var(--hover-task);
 }
 
-.add-project i {
+.add-box i {
     font-size: 2em;
 }
 

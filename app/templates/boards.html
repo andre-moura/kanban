@@ -22,16 +22,8 @@
     </div>
     <div class="grid-flex ">
         {{ template.project("Kanban") }}
-        {{ template.addProject() }}
+        {{ template.addBox("add-board") }}
     </div>
-    <script>
-        // Changing cplor of body
-        const body = document.getElementsByTagName('body');
-        body[0].style.background = 'var(--dark-grey)'
-        
-        const addProject = document.getElementById('add-project');
-        addProject.addEventListener('click', e => {
-        alert('Not implemented');
-        })
-    </script>
+    <script src="{{url_for('static', filename='js/body.js')}}"></script>
+    <script src="{{url_for('static', filename='js/boards.js')}}"></script>
 {% endblock %}

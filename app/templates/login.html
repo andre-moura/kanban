@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import "macro/forms.html" as forms %}
 
 {% block title %}
     Log in
@@ -7,24 +8,20 @@
 {% block main %}
     <div class="form-container">
         <div class="form-box">
-            <h1 class="form-h1">Welcome to the best Kanban ever created!</h1>
+            {{ forms.title("Welcome to the best Kanban ever created!") }}
             <form class="form" action="/login" method="post">
                     <div>
-                        <label>
-                            <input class="input-form" name="email" type="email" placeholder="E-mail" autocomplete="off" required>
-                        </label>
+                        {{ forms.input("email", "email", "E-mail", "email") }}
                     </div>
                     <div>
-                        <label>
-                            <input class="input-form" name="password" type="Password" placeholder="Password" autocomplete="off" required>
-                        </label>
+                        {{ forms.input("password", "password", "Password", "password") }}
                     </div>
-                    <a href="" class="link">Forgot password?</a>
-                    <input class="button" type="submit" value="Sign In">
+                    {{ forms.link("/", "Forgot password?") }}
+                    {{ forms.button("signin", "Sign In", "submit") }}
             </form>
         </div>
         <div class="login-image blob-img">
-            <img src="static\img\login-image.svg">
+            <img src="{{ url_for('static', filename='img/login-image.svg') }}">
         </div>
     </div>
 {% endblock %}

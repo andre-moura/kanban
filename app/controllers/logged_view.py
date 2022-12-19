@@ -13,9 +13,12 @@ def project():
         return render_template('boards.html')
 
 
-@app.route('/kanban')
+@app.route('/kanban', methods=['GET', 'POST'])
 def board():
-    if request.method == "GET":
+    if request.method == 'GET':
+        return render_template('kanban.html')
+    if request.method == 'POST':
+        print(request.get_json())
         return render_template('kanban.html')
 
 

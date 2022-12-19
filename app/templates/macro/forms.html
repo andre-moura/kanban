@@ -1,0 +1,31 @@
+{% macro input(id, name, placeholder, type) %}
+    <label>
+        <input 
+        class="input-form" 
+        id="{{ id }}" 
+        name="{{ name }}"
+        type="{{ type }}" 
+        placeholder="{{ placeholder }}" 
+        autocomplete="off" 
+        required>
+    </label>
+{% endmacro %}
+
+{% macro button(id, value, type) %}
+    <input 
+        class="button"
+        id="{{ id }}"
+        type="{{ type }}" 
+        value="{{ value }}">
+{% endmacro %}
+
+{% macro link(href, value) %}
+    <a 
+        class="link"
+        href="{{ href }}" 
+        >{{ value }}</a>
+{% endmacro %}
+
+{% macro title(value) %}
+    <h1 class="form-h1">{{ value }}</h1>
+{% endmacro %}
