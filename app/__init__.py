@@ -13,3 +13,11 @@ migrate = Migrate(app, db)
 from app.controllers import default
 from app.controllers import logged_view
 from app.models import tables
+
+@app.shell_context_processor
+def make_shell_context():
+    return dict(
+        app=app,
+        db=db,
+        User=tables.User
+    )

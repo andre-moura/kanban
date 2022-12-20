@@ -1,4 +1,5 @@
 from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(db.Model):
@@ -8,15 +9,15 @@ class User(db.Model):
     name = db.Column(db.String)
     username = db.Column(db.String, unique=True)
     email = db.Column(db.String, unique=True)
-    password = db.Column(db.String)
+    password_hash = db.Column(db.String)
 
     def __init__(self, name, email, password):
         self.name = name
         self.email = email
-        self.password = password
+        self.password_hash = generate_password_hash(password)
 
-    def __repr__(self):
-        return '<User %r>' % self.email
+    def verify_password(self, pwd):
+        return check_password_hash(self.password, pwd)
 
 
 class Project(db.Model):
