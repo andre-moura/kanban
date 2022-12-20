@@ -5,7 +5,7 @@ import jyserver.Flask as jsf
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = '65a19a98-e2d1-4bfa-98bf-a8feec4ec0ed'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
