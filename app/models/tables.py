@@ -20,7 +20,12 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, pwd)
 
     def __repr__(self) -> str:
-        return f'<User {self.email}>'
+        user = {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email
+        }
+        return str(user)
 
 
 class Project(db.Model):
@@ -33,7 +38,11 @@ class Project(db.Model):
         self.name = name
 
     def __repr__(self) -> str:
-        return f'<Project {self.name}>'
+        project = {
+            'id': self.id,
+            'name': self.name
+        }
+        return str(project)
     
 
 class UserProjects(db.Model):
@@ -49,6 +58,7 @@ class UserProjects(db.Model):
 
     def __repr__(self) -> str:
         return f'<UserProject {self.id_user}, {self.id_project}>'
+
 
 
 class Kanban(db.Model):
