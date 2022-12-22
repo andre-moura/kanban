@@ -6,9 +6,16 @@
 {% endblock %}
 
 {% block main %}
-    <div class="form-container">
+    {{ forms.title("Welcome to the best Kanban ever created!") }}
+    <div class="form-container login-container">
         <div class="form-box">
-            {{ forms.title("Welcome to the best Kanban ever created!") }}
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }} Go to <a href="/login">Log In</a> page.
+                </div>
+            {% endif %}
+            {% endwith %}
             <form class="form" action="/login" method="post">
                     <div>
                         {{ forms.input("email", "email", "E-mail", "email") }}
@@ -19,9 +26,6 @@
                     {{ forms.link("/", "Forgot password?") }}
                     {{ forms.button("signin", "Sign In", "submit") }}
             </form>
-        </div>
-        <div class="login-image blob-img">
-            <img src="{{ url_for('static', filename='img/login-image.svg') }}">
         </div>
     </div>
 {% endblock %}

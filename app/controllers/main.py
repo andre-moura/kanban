@@ -1,19 +1,28 @@
-from app import app, render_template, request
+from flask import Blueprint, render_template, request
 
 
-@app.route('/projects')
+main = Blueprint('main', __name__)
+
+
+@main.route('/')
+def home():
+    if request.method == 'GET':
+        return render_template('index.html')
+
+
+@main.route('/projects')
 def projects():
     if request.method == "GET":
         return render_template('projects.html')
 
 
-@app.route('/boards')
+@main.route('/boards')
 def project():
     if request.method == "GET":
         return render_template('boards.html')
 
 
-@app.route('/kanban', methods=['GET', 'POST'])
+@main.route('/kanban', methods=['GET', 'POST'])
 def board():
     if request.method == 'GET':
         return render_template('kanban.html')
@@ -22,7 +31,7 @@ def board():
         return render_template('kanban.html')
 
 
-@app.route('/members')
+@main.route('/members')
 def members():
     if request.method == "GET":
         return render_template('members.html')

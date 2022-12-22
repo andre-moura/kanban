@@ -1,4 +1,5 @@
 :root {
+    --main-color: #2196f3;
     --text-color: #FFFFFFE6;
     --text-hover: #fff;
     --light-black: #1d2226;
@@ -10,6 +11,7 @@
     --light-grey: #ebecf0;
     --dark-grey: rgb(131, 140, 145);
     --hover-task: rgba(255, 255, 255, 0.4);
+    --white: #fff;
 }
 @font-face {
     font-family: "Great Vibes";
@@ -26,6 +28,7 @@ body {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
     font: 1.2rem;
     height: 100vh;
+    background-color: var(--main-color);
 }
 
 nav {
@@ -107,8 +110,10 @@ tr:hover {
 .input-form {
     display: block;
     width: 96%;
-    height: 46px;
+    height: 40px;
     margin-top: 4%;
+    border-radius: 3px;
+    border: 1px solid var(--dark-grey);
     padding: 1px 1.5%;
 }
 
@@ -118,6 +123,10 @@ tr:hover {
 
 .form-box {
     width: 35%;
+    background-color: var(--white);
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 3px;
 }
 
 .form-box a {
@@ -146,8 +155,10 @@ tr:hover {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    padding: 50px 20px;
     margin: auto;
+}
+.login-container {
+    padding: 50px 20px;
 }
 
 .button {
@@ -155,7 +166,7 @@ tr:hover {
     font-size: 1.4rem;
     color: var(--text-hover);
     height: 48px;
-    border-radius: 28px;
+    border-radius: 3px;
     border: none;
     width: 100%;
     line-height: normal;
@@ -166,7 +177,8 @@ tr:hover {
 }
 
 .form-h1 {
-    color: var(--light-brown);
+    text-align: center;
+    color: var(--white);
 }
 
 .blob-img {
@@ -408,6 +420,25 @@ input:focus {
     --dynamic-button-background-color-pressed: rgba(0, 0, 0, 0.3);
     --dynamic-nav-item-background-color-hovered: hsla(0, 100%, 0%, 0.08);
     --dynamic-nav-item-background-color-pressed: hsla(0, 100%, 0%, 0.16);
+}
+
+.alert {
+    margin-top: 1rem;
+    border: 1px solid;
+    padding: .75rem 1.25rem;
+    border-radius: .25rem;
+}
+
+.sucess {
+    color: #155724;
+    border-color: #c3e6cb;
+    background-color: #d4edda;
+}
+
+.error {
+    color: #8f444b;
+    border-color: #f5c6cb;
+    background-color: #f8d7da;
 }
 
 @media (max-width: 1000px) {

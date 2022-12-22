@@ -6,9 +6,16 @@
 {% endblock %}
 
 {% block main %}
+    {{ forms.title("Take advantage of the scrum methodology") }}
     <div class="form-container">
         <div class="form-box">
-            {{ forms.title("Take advantage of the scrum methodology") }}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }} Go to <a href="/login">Log In</a> page.
+                    </div>
+                {% endif %}
+            {% endwith %}
             <form action="/register" method="post">
                     <div>
                         {{ forms.input("name", "name", "Name", "text") }}
