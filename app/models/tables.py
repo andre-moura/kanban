@@ -57,8 +57,12 @@ class UserProjects(db.Model):
         self.id_project = id_project
 
     def __repr__(self) -> str:
-        return f'<UserProject {self.id_user}, {self.id_project}>'
-
+        user_projects = {
+            'id': self.id,
+            'id_user': self.id_user,
+            'id_project': self.id_project
+        }
+        return str(user_projects)
 
 
 class Kanban(db.Model):
