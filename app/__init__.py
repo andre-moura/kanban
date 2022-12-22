@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+import secrets
 
 
 db = SQLAlchemy()
@@ -10,7 +11,7 @@ migrate = Migrate()
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = '65a19a98-e2d1-4bfa-98bf-a8feec4ec0ed'
+    app.config['SECRET_KEY'] = secrets.token_hex()
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage.db'
 
     db.init_app(app)
