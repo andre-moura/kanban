@@ -19,6 +19,9 @@ class User(UserMixin, db.Model):
     def verify_password(self, pwd):
         return check_password_hash(self.password_hash, pwd)
 
+    def __repr__(self) -> str:
+        return f'<User {self.email}>'
+
 
 class Project(db.Model):
     __tablename__ = 'projects'
@@ -30,7 +33,7 @@ class Project(db.Model):
         self.name = name
 
     def __repr__(self):
-        pass
+        return self
     
 
 class UserProjects(db.Model):
@@ -45,7 +48,7 @@ class UserProjects(db.Model):
         self.id_project = id_project
 
     def __repr__(self):
-        pass
+        return self
 
 
 class Kanban(db.Model):
@@ -60,7 +63,7 @@ class Kanban(db.Model):
         self.id_project = id_project
 
     def __repr__(self):
-        pass
+        return self
 
 
 class KanbanList(db.Model):
@@ -77,7 +80,7 @@ class KanbanList(db.Model):
         self.id_kanban = id_kanban
 
     def __repr__(self):
-        pass
+        return self
 
 
 class Task(db.Model):
@@ -93,4 +96,4 @@ class Task(db.Model):
         self.id_list = id_list
 
     def __repr__(self):
-        pass
+        return self
