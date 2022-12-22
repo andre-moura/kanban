@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
+from app.models.tables import UserProjects, Project
 
 
 main = Blueprint('main', __name__)
@@ -13,7 +14,9 @@ def home():
 @login_required
 def projects():
     if request.method == "GET":
-        print(current_user.name)
+        # user = current_user
+        # projects = ProjectUser.select()
+        # print(projects)
         return render_template('projects.html')
 
 
