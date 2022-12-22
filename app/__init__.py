@@ -46,41 +46,23 @@ def create_app():
     @app.cli.command("bootstrap")
     def bootstrap_data():
         """Populates the database with data"""
-        db.session.add(
-            User(name="Andre", email="andre@gmail.com", password="123456")
-        )
-        db.session.add(
-            Project(name="Project X"),
-            Project(name="Dragons")
-        )
-        db.session.add(
-            UserProjects(id_user=1, id_project=1),
-            UserProjects(id_user=1, id_project=2)
-        )
-        db.session.add(
-            Kanban(name='Sprint 1', id_project=1),
-            Kanban(name='Sprint 2', id_project=1)
-        )
-        db.session.add(
-            KanbanList(name='To do', order=1, id_kanban=1),
-            KanbanList(name='Doing', order=2, id_kanban=1)
-        )
-        db.session.add(
-            KanbanList(name='Testing', order=3, id_kanban=1),
-            KanbanList(name='Done', order=4, id_kanban=1)
-        )
-        db.session.add(
-            Task(content="Create a login page and connect with back-end", id_list=1),
-            Task(content="Integrate the back-end and the front-end", id_list=1)
-        )
-        db.session.add(
-            Task(content="Create the login route", id_list=2),
-            Task(content="Create a task in the kanban", id_list=2)
-        )
-        db.session.add(
-            Task(content="Create a register route", id_list=3),
-            Task(content="Prototype the landing page", id_list=3)
-        )
+        db.session.add(User(name="Andre", email="andre@gmail.com", password="123456"))
+        db.session.add(Project(name="Project X"))
+        db.session.add(Project(name="Dragons"))
+        db.session.add(UserProjects(id_user=1, id_project=1))
+        db.session.add(UserProjects(id_user=1, id_project=2))
+        db.session.add(Kanban(name='Sprint 1', id_project=1))
+        db.session.add(Kanban(name='Sprint 2', id_project=1))
+        db.session.add(KanbanList(name='To do', order=1, id_kanban=1))
+        db.session.add(KanbanList(name='Doing', order=2, id_kanban=1))
+        db.session.add(KanbanList(name='Testing', order=3, id_kanban=1))
+        db.session.add(KanbanList(name='Done', order=4, id_kanban=1))
+        db.session.add(Task(content="Create a login page and connect with back-end", id_list=1))
+        db.session.add(Task(content="Integrate the back-end and the front-end", id_list=1))
+        db.session.add(Task(content="Create a task in the kanban", id_list=2))
+        db.session.add(Task(content="Create the login route", id_list=2))
+        db.session.add(Task(content="Create a register route", id_list=3))
+        db.session.add(Task(content="Prototype the landing page", id_list=3))
 
         db.session.commit()
 
