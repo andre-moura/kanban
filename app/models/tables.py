@@ -32,8 +32,8 @@ class Project(db.Model):
     def __init__(self, name):
         self.name = name
 
-    def __repr__(self):
-        return self
+    def __repr__(self) -> str:
+        return f'<Project {self.name}>'
     
 
 class UserProjects(db.Model):
@@ -47,8 +47,8 @@ class UserProjects(db.Model):
         self.id_user = id_user
         self.id_project = id_project
 
-    def __repr__(self):
-        return self
+    def __repr__(self) -> str:
+        return f'<UserProject {self.id_user}, {self.id_project}>'
 
 
 class Kanban(db.Model):
@@ -62,8 +62,8 @@ class Kanban(db.Model):
         self.name = name
         self.id_project = id_project
 
-    def __repr__(self):
-        return self
+    def __repr__(self) -> str:
+        return f'<Kanban {self.name}>'
 
 
 class KanbanList(db.Model):
@@ -79,8 +79,8 @@ class KanbanList(db.Model):
         self.order = order
         self.id_kanban = id_kanban
 
-    def __repr__(self):
-        return self
+    def __repr__(self) -> str:
+        return f'<KanbanList {self.name}>'
 
 
 class Task(db.Model):
@@ -95,5 +95,5 @@ class Task(db.Model):
         self.content = content
         self.id_list = id_list
 
-    def __repr__(self):
-        return self
+    def __repr__(self) -> str:
+        return f'<Task {self.content}>'
