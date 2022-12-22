@@ -11,8 +11,8 @@
         <div class="form-box">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-                <div class="notification is-danger">
-                    {{ messages[0] }} Go to <a href="/login">Log In</a> page.
+                <div class="alert {{ messageType }}">
+                    {{ messages[0] }}
                 </div>
             {% endif %}
             {% endwith %}

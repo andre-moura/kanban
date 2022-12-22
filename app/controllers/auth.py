@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, flash
 from app.models.tables import User
-import datetime
-
 from app import db
+import datetime
+from flask_login import login_user, logout_user, login_required
 
 
 auth = Blueprint('auth', __name__)
@@ -18,16 +18,12 @@ def login():
 
         user = User.query.filter_by(email=email).first()
 
-        if not user:
-            return '404'
+        if not user or not user.verify_password(password):
+            flash('Please check your Log In details and try again.')
+            return render_template('login.html', messageType="error")
 
-        if not user.verify_password(password):
-            return '403'
-        
-        payload = {
-            "id": user.id,
-            "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=10)
-        }
+        login_user(user)
+        return render_template('projects.html', messageType="sucess")
 
 
 @auth.route('/register', methods=['GET','POST'])
@@ -47,7 +43,7 @@ def register():
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email adress already exists.')
-            return render_template('/login.html')
+            return render_template('register.html')
 
         user = User(
             name=name,
@@ -58,4 +54,11 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        return render_template('login.html')
+        flash('Account registered.')
+        return render_template('login.html', messageType="sucess")
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+    pass
