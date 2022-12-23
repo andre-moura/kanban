@@ -77,7 +77,12 @@ class Kanban(db.Model):
         self.id_project = id_project
 
     def __repr__(self) -> str:
-        return f'<Kanban {self.name}>'
+        kanban = {
+            'id': self.id,
+            'name': self.name,
+            'id_project': self.id_project
+        }
+        return str(kanban)
 
 
 class KanbanList(db.Model):
