@@ -127,4 +127,4 @@ class Task(db.Model):
             'id_list': self.id_list,
             'id_user': self.id_user
         }
-        return f'<Task {self.content}>'
+        return str(task)
