@@ -86,7 +86,7 @@ class Kanban(db.Model):
 
 
 class KanbanList(db.Model):
-    __tablename__ = 'lists'
+    __tablename__ = 'kanban_lists'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
@@ -99,7 +99,13 @@ class KanbanList(db.Model):
         self.id_kanban = id_kanban
 
     def __repr__(self) -> str:
-        return f'<KanbanList {self.name}>'
+        kanban_list = {
+            'id': self.id,
+            'name': self.name,
+            'order': self.order,
+            'id_kanban': self.id_kanban
+        }
+        return str(kanban_list)
 
 
 class Task(db.Model):
