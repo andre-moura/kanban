@@ -121,4 +121,10 @@ class Task(db.Model):
         self.id_list = id_list
 
     def __repr__(self) -> str:
+        task = {
+            'id': self.id,
+            'content': self.content,
+            'id_list': self.id_list,
+            'id_user': self.id_user
+        }
         return f'<Task {self.content}>'
