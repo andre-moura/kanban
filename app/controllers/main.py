@@ -14,10 +14,16 @@ def home():
 @login_required
 def projects():
     if request.method == "GET":
-        # user = current_user
-        # projects = ProjectUser.select()
-        # print(projects)
-        return render_template('projects.html')
+        user = current_user
+        user_projects = UserProjects.query.filter_by(id_user=user.id).all()
+
+        projects_ids = []
+        for user_project in user_projects:
+            projects_ids.append(user_project.id)
+
+        projects = Project.query.filter(Project.id.in_(tuple(projects_ids))).all()
+        print(projects)
+        return render_template('projects.html', projects=projects)
 
 
 @main.route('/boards')
