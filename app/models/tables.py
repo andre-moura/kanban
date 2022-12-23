@@ -113,7 +113,7 @@ class Task(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)
-    id_list = db.Column(db.Integer, db.ForeignKey('lists.id'))
+    id_list = db.Column(db.Integer, db.ForeignKey('kanban_lists.id'))
     id_user = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
 
     def __init__(self, content, id_list):
