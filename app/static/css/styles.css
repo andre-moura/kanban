@@ -31,6 +31,15 @@ body {
     background-color: var(--main-color);
 }
 
+.main-kanban {
+    outline: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    flex-grow: 1;
+    height: 89%;
+}
+
 nav {
     background-color: var(--light-black);
     color: var(--text-color);

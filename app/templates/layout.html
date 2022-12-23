@@ -10,18 +10,20 @@
     <link rel="icon" type="image/x-icon" href="/static/img/favicon-cron.ico">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="logo"><a href="/" class="logo"><img src="/static/img/ananke-main-logo.png" width="80px" alt="Ananke"></a></li>
-            {% if current_user.is_authenticated %}
-                <li class="items"><a href="/projects">Projects</a></li>
-                <li class="items"><a href="/logout">Log Out</a></li>
-            {% else %}
-                <li class="items"><a href="/register">Register</a></li>
-                <li class="items"><a href="/login">Log In</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+    <div>
+        <nav>
+            <ul>
+                <li class="logo"><a href="/" class="logo"><img src="/static/img/ananke-main-logo.png" width="80px" alt="Ananke"></a></li>
+                {% if current_user.is_authenticated %}
+                    <li class="items"><a href="/projects">Projects</a></li>
+                    <li class="items"><a href="/logout">Log Out</a></li>
+                {% else %}
+                    <li class="items"><a href="/register">Register</a></li>
+                    <li class="items"><a href="/login">Log In</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
     {% block main %}{% endblock %}
 </body>
 </html>

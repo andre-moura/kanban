@@ -2,8 +2,6 @@
 for (const draggableElement of document.querySelectorAll('.task')) {
     draggableElement.addEventListener('dragstart', e => {
         e.dataTransfer.setData('text/plain', draggableElement.id)
-        // let deg = e.clientX - window.innerWidth / 2 > 0 ? -3: 3;
-        // e.currentTarget.style.transform = `rotate(${deg}deg)`;
         console.log(e.clientX - window.innerWidth / 2)
     });
 }
@@ -31,7 +29,8 @@ for (const dropZone of document.querySelectorAll('.item-box')) {
         const droppedElement = document.getElementById(droppedElementId);
 
         // droppedElement.style.transform = 'rotate(0deg)';
-        
+        console.log(dropZone.children[0])
+        console.log(droppedElement)
         dropZone.children[0].appendChild(droppedElement);
         dropZone.classList.remove('item--over');
     });
@@ -48,24 +47,6 @@ for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
 for (const btnBar of document.getElementsByClassName('btn-bar')) {
     btnBar.addEventListener('click', e => {
         alert('Bar event not implemented!');
-    });
-}
-
-// Adding click event in the add card button
-for (const btnAddCard of document.getElementsByClassName('add-card')) {
-    btnAddCard.addEventListener('click', e => {
-        fetch('/kanban', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: 'TESTE'
-            })
-        }).then(res => {
-            return res.json()
-        })
-        console.log(e.target.value);
     });
 }
 

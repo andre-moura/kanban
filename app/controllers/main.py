@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session
 from flask_login import login_required, current_user
-from app.models.tables import UserProjects, Project, Kanban
+from app.models.tables import UserProjects, Project, Kanban, KanbanList, Task
 
 
 main = Blueprint('main', __name__)
@@ -37,10 +37,14 @@ def boards(id):
 @login_required
 def kanban(id):
     if request.method == 'GET':
-
-        return render_template('kanban.html')
+        kanban_lists = KanbanList.query.filter_by(id_kanban=id).order_by(KanbanList.order).all()
+        ids_lists = []
+        for kanban_list in kanban_lists:
+            ids_lists.append(kanban_list.id)
+        tasks = Task.query.filter(Task.id_list.in_(tuple(ids_lists))).all()
+        return render_template('kanban.html', kanban_lists=kanban_lists, tasks=tasks)
+        
     if request.method == 'POST':
-        print(request.get_json())
         return render_template('kanban.html')
 
 
