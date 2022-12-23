@@ -258,18 +258,22 @@ tr:hover {
 }
 
 .add-card:hover {
-    background-color: var(--hover-task);
+    background-color: #c9ccdafd;
     color:#172b4d;
 }
 
 .add-list {
-    background-color: rgba(255,255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     color: var(--text-color);
     border-radius: 3px;
     margin: 10px 10px;
     padding: 10px;
     width: 250px;
     cursor: pointer;
+}
+
+.add-list:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .h3 {
@@ -287,7 +291,7 @@ tr:hover {
 }
 
 .add-box {
-    background-color: rgba(255,255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     color: var(--text-color);
     cursor: pointer;
     width: 180px;
@@ -301,7 +305,7 @@ tr:hover {
 }
 
 .add-box:hover {
-    background-color: var(--hover-task);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .add-box i {
