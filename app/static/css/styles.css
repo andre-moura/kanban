@@ -299,7 +299,7 @@ tr:hover {
     font-size: 2em;
 }
 
-.project {
+.card {
     background-color: var(--light-black);
     color: var(--text-color);
     cursor: pointer;
@@ -311,7 +311,7 @@ tr:hover {
     padding: 10px;
 }
 
-.tag-project {
+.tag-card {
     border-radius: 3px;
     background-color: var(--ds-background-accent-gray-subtler, rgba(255, 255, 255, 0.69));
     padding: 3px 8px;
@@ -439,6 +439,10 @@ input:focus {
     color: #8f444b;
     border-color: #f5c6cb;
     background-color: #f8d7da;
+}
+
+.card-link {
+    text-decoration: none;
 }
 
 @media (max-width: 1000px) {

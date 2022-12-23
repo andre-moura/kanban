@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 from flask_login import login_required, current_user
-from app.models.tables import UserProjects, Project
+from app.models.tables import UserProjects, Project, Kanban
 
 
 main = Blueprint('main', __name__)
@@ -22,21 +22,22 @@ def projects():
             projects_ids.append(user_project.id)
 
         projects = Project.query.filter(Project.id.in_(tuple(projects_ids))).all()
-        print(projects)
         return render_template('projects.html', projects=projects)
 
 
-@main.route('/boards')
+@main.route('/boards/<id>')
 @login_required
-def project():
-    if request.method == "GET":
-        return render_template('boards.html')
-
-
-@main.route('/kanban', methods=['GET', 'POST'])
-@login_required
-def board():
+def boards(id):
     if request.method == 'GET':
+        kanbans = Kanban.query.filter_by(id_project=id).all()
+        return render_template('boards.html', kanbans=kanbans)
+
+
+@main.route('/kanban/<id>', methods=['GET', 'POST'])
+@login_required
+def kanban(id):
+    if request.method == 'GET':
+
         return render_template('kanban.html')
     if request.method == 'POST':
         print(request.get_json())

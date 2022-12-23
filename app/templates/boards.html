@@ -21,8 +21,10 @@
         </select>
     </div>
     <div class="grid-flex ">
-        {{ template.project("Kanban") }}
+        {% for kanban in kanbans %}
+            {{ template.card(kanban.name, kanban.id, "main.kanban") }}
+        {% endfor %}
+
         {{ template.addBox("add-board") }}
     </div>
-    <script src="{{url_for('static', filename='js/body.js')}}"></script>
 {% endblock %}

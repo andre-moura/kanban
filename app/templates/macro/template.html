@@ -1,16 +1,18 @@
 {% macro template(name) %}
-    <div class="project">
-        <div class="tag-project">
+    <div class="card">
+        <div class="tag-card">
             Template
         </div>
         {{name}}
     </div>
 {% endmacro %}
 
-{% macro project(name) %}
-<div class="project">
-    {{ name }}
-</div>
+{% macro card(name, id, adress) %}
+<a class="card-link" href="{{url_for(adress, id=id)}}">
+    <div class="card" id="{{ id }}">
+        {{ name }}
+    </div>
+</a>
 {% endmacro %}
 
 {% macro addBox(id) %}

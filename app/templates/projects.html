@@ -15,7 +15,7 @@
     {{ template.title("Your Workspaces", "briefcase") }}
     <div class="grid-flex ">
         {% for project in projects %}
-            {{ template.project(project.name) }}
+            {{ template.card(project.name, project.id, "main.boards") }}
         {% endfor %}
         {{ template.addBox("add-project") }}
     </div>
