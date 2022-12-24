@@ -39,7 +39,8 @@ for (const dropZone of document.querySelectorAll('.item-box')) {
 // Adding click event in the bar button
 for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
     btnPencil.addEventListener('click', e => {
-        alert('Pencil event not implemented!');
+        const modal = document.getElementById('modal')
+        modal.style.display = 'flex';
     });
 }
 
@@ -53,5 +54,12 @@ for (const btnBar of document.getElementsByClassName('btn-bar')) {
 // Adding click event in the add list button
 const btnAddList = document.getElementById('add-list');
 btnAddList.addEventListener('click', e => {
-    alert('Add list not implemented');
+
 });
+
+for (const addCard of document.getElementsByClassName('add-card')) {
+    addCard.addEventListener('click', e => {
+        const modal = document.getElementById('modal')
+        modal.style.display = 'flex';
+    })
+}

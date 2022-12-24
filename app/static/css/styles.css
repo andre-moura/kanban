@@ -12,6 +12,7 @@
     --dark-grey: rgb(131, 140, 145);
     --hover-task: rgba(255, 255, 255, 0.4);
     --white: #fff;
+    --popup: #f4f5f7;
 }
 @font-face {
     font-family: "Great Vibes";
@@ -75,9 +76,6 @@ nav ul li.items {
     margin: auto 1%;
     text-align: center;
     order: 3;
-}
-
-main {
 }
 
 hr {
@@ -177,12 +175,12 @@ tr:hover {
     height: 48px;
     border-radius: 3px;
     border: none;
-    width: 100%;
     line-height: normal;
     font-weight: normal;
     text-decoration: none;
     margin-top: 4%;
     cursor: pointer;
+    width: 100%;
 }
 
 .form-h1 {
@@ -456,6 +454,61 @@ input:focus {
 
 .card-link {
     text-decoration: none;
+}
+
+.mg-tp-0 {
+    margin-top: 0;
+}
+
+.h3-modal {
+    font-weight: 500;
+}
+
+.modalBackground textarea {
+    width: 90%;
+    background-color: var(--ds-background-input, white);
+    border: 1px solid var(--ds-border, #DFE1E6);
+    border-radius: 3px;
+    height: 60px;
+    border: none;
+    box-shadow: 0 0 0 1px inset var(--ds-border-input, #DFE1E6);
+    resize: none;
+    margin: 0;
+    padding: 5%;
+}
+
+.modalBackground {
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.493);
+position: fixed;
+display: none;
+justify-content: center;
+align-items: flex-start;
+z-index: 2;
+}
+
+.modalContainer {
+width: 500px;
+border-radius: 12px;
+background-color: white;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+display: flex;
+flex-direction: column;
+padding: 25px;
+margin-top: 2%;
+}
+
+.titleCloseBtn {
+display: flex;
+justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+background-color: transparent;
+border: none;
+font-size: 25px;
+cursor: pointer;
 }
 
 @media (max-width: 1000px) {

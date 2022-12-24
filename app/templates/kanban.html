@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
+{% import "macro/modals.html" as modals %}
 
 {% block title %}
     Board
 {% endblock %}
 
 {% block main %}
+    {{ modals.task() }}
     <div class="main-kanban">
         <div class="grid-board">
             {% for kanban_lists in kanban_lists %}
@@ -35,4 +37,5 @@
         </div>
     </div>
     <script src="{{ url_for('static', filename='js/kanban.js') }}"  type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/modals.js') }}"  type="text/javascript"></script>
 {% endblock %}
