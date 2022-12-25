@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% import "macro/template.html" as template %}
+{% import "macro/modals.html" as modals %}
 
 {% block title %}
     Projects
 {% endblock %}
 
 {% block main %}
+    {{ modals.project() }}
     {{ template.title("Popular templates", "pager") }}
     <div class="grid-flex ">
         {{ template.template("Kanban") }}
@@ -17,7 +19,7 @@
         {% for project in projects %}
             {{ template.card(project.name, project.id, "main.boards") }}
         {% endfor %}
-        {{ template.addBox("add-project") }}
+        {{ template.addBox("add_project") }}
     </div>
-    <script src="{{ url_for('static', filename='js/projects.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/projects.js') }}"  type="text/javascript"></script>
 {% endblock %}

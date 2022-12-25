@@ -8,10 +8,57 @@
         <div class="body">
             <textarea name="" id=""></textarea>
         </div>
-        <button class="button">Salvar</button>
+        <button class="button">Save</button>
         <h3 class="h3-modal"><i class="fa-solid fa-user"></i> Members</h3>
         <input class="input-form mg-tp-0">
     </div>
 </div>
-<link href="../../static/css/styles.css" rel="stylesheet">
+{% endmacro %}
+
+{% macro project() %}
+<div class="modalBackground" id="modal">
+    <div class="modalContainer">
+        <div class="titleCloseBtn">
+            <button id="close_btn">X</button>
+        </div>
+        <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-list-check"></i> Project</h3>
+        <div class="body">
+            <input class="input-form mg-tp-0" placeholder="Project Name">
+        </div>
+        <button class="button">Create</button>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro board() %}
+<div class="modalBackground" id="modal">
+    <div class="modalContainer">
+        <div class="titleCloseBtn">
+            <button id="close_btn">X</button>
+        </div>
+        <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-diagram-project"></i> Board</h3>
+        <div class="body">
+            <input class="input-form mg-tp-0" placeholder="Board Name">
+            <select class="select-popup">
+                <option>Kanban</option>
+            </select>
+        </div>
+        <button class="button">Create</button>
+    </div>
+</div> 
+{% endmacro %}
+
+{% macro list() %}
+<div class="modalBackground" id="modal_list">
+    <div class="modalContainer">
+        <div class="titleCloseBtn">
+            <button id="close_list_btn">X</button>
+        </div>
+        <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-list"></i> Kanban List</h3>
+        <div class="body">
+            <input class="input-form mg-tp-0" placeholder="List Name">
+        </div>
+        <button class="button">Create</button>
+    </div>
+</div>
 {% endmacro %}

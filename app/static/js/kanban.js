@@ -52,9 +52,10 @@ for (const btnBar of document.getElementsByClassName('btn-bar')) {
 }
 
 // Adding click event in the add list button
-const btnAddList = document.getElementById('add-list');
+const btnAddList = document.getElementById('add_list');
 btnAddList.addEventListener('click', e => {
-
+    const modal = document.getElementById('modal_list')
+    modal.style.display = 'flex';
 });
 
 for (const addCard of document.getElementsByClassName('add-card')) {

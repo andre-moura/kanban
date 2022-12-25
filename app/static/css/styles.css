@@ -511,6 +511,18 @@ font-size: 25px;
 cursor: pointer;
 }
 
+.select-popup {
+    width: 96%;
+    background-color: var(--white);
+    border: none;
+    box-shadow: 0 0 0 1px inset var(--ds-border-input, #DFE1E6);
+    height: 30px;
+    text-align: center;
+    margin-top: 4%;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
 @media (max-width: 1000px) {
     .login-image {
         display: none;
