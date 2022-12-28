@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from flask_login import login_required, current_user
 from app.models.tables import UserProjects, Project, Kanban, KanbanList, Task
+from app import db
 
 
 main = Blueprint('main', __name__)
@@ -10,7 +11,7 @@ def home():
     if request.method == 'GET':
         return render_template('index.html')
 
-@main.route('/projects')
+@main.route('/projects', methods=['GET', 'POST'])
 @login_required
 def projects():
     if request.method == "GET":
@@ -25,7 +26,19 @@ def projects():
         return render_template('projects.html', projects=projects)
 
     if request.method == 'POST':
-        pass
+        project_name = request.form['project-name']
+        new_project = Project(
+            name=project_name
+        )
+        new_user_project = UserProjects(
+            id_user=current_user.id, 
+            id_project=new_project.id
+        )
+
+        db.session.add(new_project)
+        db.session.add(new_user_project)
+        db.session.commit()
+        return redirect(url_for('main.projects'))
 
 @main.route('/task', methods=['POST'])
 @login_required
