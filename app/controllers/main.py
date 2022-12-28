@@ -24,6 +24,14 @@ def projects():
         projects = Project.query.filter(Project.id.in_(tuple(projects_ids))).all()
         return render_template('projects.html', projects=projects)
 
+    if request.method == 'POST':
+        pass
+
+@main.route('/task', methods=['POST'])
+@login_required
+def task():
+    if request.method == 'POST':
+        pass
 
 @main.route('/boards/<id>')
 @login_required
@@ -31,7 +39,20 @@ def boards(id):
     if request.method == 'GET':
         kanbans = Kanban.query.filter_by(id_project=id).all()
         return render_template('boards.html', kanbans=kanbans)
+    
 
+@main.route('/boards', methods=['POST'])
+@login_required
+def create_board():
+    if request.method == 'POST':
+        pass
+
+
+@main.route('/list', methods=['POST'])
+@login_required
+def list():
+    if request.method == 'POST':
+        pass
 
 @main.route('/kanban/<id>', methods=['GET', 'POST'])
 @login_required
@@ -51,5 +72,5 @@ def kanban(id):
 @main.route('/members')
 @login_required
 def members():
-    if request.method == "GET":
+    if request.method == 'GET':
         return render_template('members.html')

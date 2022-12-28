@@ -5,12 +5,14 @@
             <button id="close_btn">X</button>
         </div>
         <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-bars"></i> Description</h3>
-        <div class="body">
-            <textarea name="" id=""></textarea>
-        </div>
-        <button class="button">Save</button>
-        <h3 class="h3-modal"><i class="fa-solid fa-user"></i> Members</h3>
-        <input class="input-form mg-tp-0">
+        <form action="/task" method="post">
+            <div class="body">
+                <textarea name="task" id="task"></textarea>
+            </div>
+            <input class="button" value="Save"/>
+            <h3 class="h3-modal"><i class="fa-solid fa-user"></i> Members</h3>
+            <input class="input-form mg-tp-0">
+        </form>
     </div>
 </div>
 {% endmacro %}
@@ -22,10 +24,12 @@
             <button id="close_btn">X</button>
         </div>
         <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-list-check"></i> Project</h3>
+        <form action="/projects" method="post">
         <div class="body">
             <input class="input-form mg-tp-0" placeholder="Project Name">
         </div>
-        <button class="button">Create</button>
+        <input class="button" value="Create" type="submit"/>
+        </form>
     </div>
 </div>
 {% endmacro %}
@@ -37,13 +41,15 @@
             <button id="close_btn">X</button>
         </div>
         <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-diagram-project"></i> Board</h3>
-        <div class="body">
-            <input class="input-form mg-tp-0" placeholder="Board Name">
-            <select class="select-popup">
-                <option>Kanban</option>
-            </select>
-        </div>
-        <button class="button">Create</button>
+        <form action="/boards" method="post">
+            <div class="body">
+                <input class="input-form mg-tp-0" placeholder="Board Name">
+                <select class="select-popup">
+                    <option>Kanban</option>
+                </select>
+            </div>
+            <input class="button" value="Create" type="submit"/>
+        </form>
     </div>
 </div> 
 {% endmacro %}
@@ -54,11 +60,13 @@
         <div class="titleCloseBtn">
             <button id="close_list_btn">X</button>
         </div>
-        <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-list"></i> Kanban List</h3>
-        <div class="body">
-            <input class="input-form mg-tp-0" placeholder="List Name">
-        </div>
-        <button class="button">Create</button>
+        <form action="/list" method="post">
+            <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-list"></i> Kanban List</h3>
+            <div class="body">
+                <input class="input-form mg-tp-0" placeholder="List Name">
+            </div>
+            <input class="button" value="Create" type="submit" />
+        </form>
     </div>
 </div>
 {% endmacro %}
