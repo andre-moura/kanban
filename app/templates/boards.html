@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block main %}
-    {{ modals.board() }}
+    {{ modals.board(id_project) }}
     {{ template.title("Popular templates", "pager") }}
     <div class="grid-flex ">
         {{ template.template("Kanban") }}

@@ -51,14 +51,24 @@ def task():
 def boards(id):
     if request.method == 'GET':
         kanbans = Kanban.query.filter_by(id_project=id).all()
-        return render_template('boards.html', kanbans=kanbans)
+        return render_template('boards.html', kanbans=kanbans, id_project=id)
     
 
 @main.route('/boards', methods=['POST'])
 @login_required
 def create_board():
     if request.method == 'POST':
-        pass
+        id_project = request.form['board_submit']
+        board_name = request.form['board_name']
+
+        board = Kanban(
+            name=board_name, 
+            id_project=id_project
+        )
+
+        db.session.add(board)
+        db.session.commit()
+        return redirect(url_for('main.boards', id=id_project))
 
 
 @main.route('/list', methods=['POST'])

@@ -34,7 +34,7 @@
 </div>
 {% endmacro %}
 
-{% macro board() %}
+{% macro board(id_project) %}
 <div class="modalBackground" id="modal">
     <div class="modalContainer">
         <div class="titleCloseBtn">
@@ -43,12 +43,12 @@
         <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-diagram-project"></i> Board</h3>
         <form action="/boards" method="post">
             <div class="body">
-                <input class="input-form mg-tp-0" placeholder="Board Name">
+                <input class="input-form mg-tp-0" placeholder="Board Name" name="board_name">
                 <select class="select-popup">
                     <option>Kanban</option>
                 </select>
             </div>
-            <input class="button" value="Create" type="submit"/>
+            <button name="board_submit" class="button" value="{{ id_project }}" type="submit">Create</button>
         </form>
     </div>
 </div> 
