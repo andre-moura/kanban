@@ -54,7 +54,7 @@
 </div> 
 {% endmacro %}
 
-{% macro list() %}
+{% macro list(id_kanban) %}
 <div class="modalBackground" id="modal_list">
     <div class="modalContainer">
         <div class="titleCloseBtn">
@@ -63,9 +63,9 @@
         <form action="/list" method="post">
             <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-list"></i> Kanban List</h3>
             <div class="body">
-                <input class="input-form mg-tp-0" placeholder="List Name">
+                <input class="input-form mg-tp-0" placeholder="List Name" name="list_name">
             </div>
-            <input class="button" value="Create" type="submit" />
+            <button value="{{ id_kanban }}" class="button" type="submit" name="kanban_submit">Create</button>
         </form>
     </div>
 </div>

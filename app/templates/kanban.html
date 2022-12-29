@@ -7,7 +7,7 @@
 
 {% block main %}
     {{ modals.task() }}
-    {{ modals.list() }}
+    {{ modals.list(id_kanban) }}
     <div class="main-kanban">
         <div class="grid-board">
             {% for kanban_lists in kanban_lists %}
