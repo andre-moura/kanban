@@ -44,7 +44,21 @@ def projects():
 @login_required
 def task():
     if request.method == 'POST':
-        pass
+        id_list = request.form['btn_add_task'].replace('btn_', '')
+        print(id_list)
+        id_kanban = request.form['kanban_id']
+        print(id_kanban)
+        task_content = request.form['content']
+        print(task_content)
+
+        new_task = Task(
+            content=task_content,
+            id_list=id_list
+        )
+
+        db.session.add(new_task)
+        db.session.commit()
+        return redirect(url_for('main.kanban', id=id_kanban))
 
 @main.route('/boards/<id>')
 @login_required

@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main %}
-    {{ modals.task() }}
+    {{ modals.task(id_kanban) }}
     {{ modals.list(id_kanban) }}
     <div class="main-kanban">
         <div class="grid-board">
@@ -25,8 +25,12 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <div class="add-card" value="item1">
-                        <i type="button" class="fa-solid fa-plus"></i> Add card
+                    <div class="add-card" id="{{ kanban_lists.id }}" name="">
+                        <i 
+                        type="button" 
+                        class="fa-solid fa-plus" 
+                        value="{{ kanban_lists.id }}" 
+                        ></i> Add card
                     </div>
                 </div>
             {% endfor %}

@@ -1,20 +1,21 @@
-{% macro task() %}
-<div class="modalBackground" id="modal">
-    <div class="modalContainer">
-        <div class="titleCloseBtn">
-            <button id="close_btn">X</button>
-        </div>
-        <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-bars"></i> Description</h3>
-        <form action="/task" method="post">
-            <div class="body">
-                <textarea name="task" id="task"></textarea>
+{% macro task(id_kanban) %}
+    <div class="modalBackground" id="modal">
+        <div class="modalContainer">
+            <div class="titleCloseBtn">
+                <button id="close_btn">X</button>
             </div>
-            <input class="button" value="Save"/>
-            <h3 class="h3-modal"><i class="fa-solid fa-user"></i> Members</h3>
-            <input class="input-form mg-tp-0">
-        </form>
+            <h3 class="h3-modal mg-tp-0"><i class="fa-solid fa-bars"></i> Description</h3>
+            <div class="body">
+                <textarea id="task" name="content"></textarea>
+            </div>
+            <button class="button" value="" name="btn_add_task" id="">Save</button>
+            <form action="/task" method="post">
+                <h3 class="h3-modal"><i class="fa-solid fa-user"></i> Members</h3>
+                <input class="input-form mg-tp-0">
+                <input type="text" name="kanban_id" value="{{ id_kanban }}" style="display: none;">
+            </form>
+        </div>
     </div>
-</div>
 {% endmacro %}
 
 {% macro project() %}

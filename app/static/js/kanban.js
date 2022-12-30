@@ -61,6 +61,8 @@ btnAddList.addEventListener('click', e => {
 for (const addCard of document.getElementsByClassName('add-card')) {
     addCard.addEventListener('click', e => {
         const modal = document.getElementById('modal')
+        const btnTask = document.getElementsByName('btn_add_task')[0]
+        btnTask.value = `btn_${e.target.id}`;
         modal.style.display = 'flex';
     })
 }
