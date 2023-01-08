@@ -17,8 +17,8 @@
                         <input class="list-input" type="text" value="{{ kanban_lists.name }}"> 
                         {% set copy_task = tasks | selectattr("id_list", "sameas", kanban_lists.id) | list %}
                         {% for task in copy_task %}
-                            <div class="task" draggable="true" id="task_{{ task.id }}">
-                                <i class="fa-solid fa-pencil btn-icons btn-pencil"></i>
+                            <div class="task" draggable="true">
+                                <i class="fa-solid fa-pencil btn-icons btn-pencil" id="task_{{ task.id }}"></i>
                                 <span>
                                     {{ task.content }}
                                 </span>

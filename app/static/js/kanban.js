@@ -40,6 +40,8 @@ for (const dropZone of document.querySelectorAll('.item-box')) {
 for (const btnPencil of document.getElementsByClassName('btn-pencil')) {
     btnPencil.addEventListener('click', e => {
         const modal = document.getElementById('modal')
+        const btnEditTask = document.getElementById('task_id')
+        btnEditTask.value = `btn_edit_${e.target.id.replace('task_', '')}`
         modal.style.display = 'flex';
     });
 }
