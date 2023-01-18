@@ -9,7 +9,8 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def home():
     if request.method == 'GET':
-        return render_template('index.html')
+        return redirect(url_for('auth.login'))
+
 
 @main.route('/projects', methods=['GET', 'POST'])
 @login_required
