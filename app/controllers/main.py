@@ -77,6 +77,7 @@ def drag_task():
     if not kanban_id or not list_id or not old_list_id or not task_id:
         return Response(status=400)
 
+    
     return Response(status=204)
 
 @main.route('/boards/<id>')
