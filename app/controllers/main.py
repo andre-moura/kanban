@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for
+from flask import Blueprint, render_template, request, session, redirect, url_for, Response
 from flask_login import login_required, current_user
 from app.models.tables import UserProjects, Project, Kanban, KanbanList, Task
 from app import db
@@ -67,12 +67,17 @@ def task():
         return redirect(url_for('main.kanban', id=id_kanban))
 
 
-@main.route('/drag-task', methods=['POST'])
+@main.route('/drag-task', methods=['PUT'])
 def drag_task():
-    print(request.json)
     kanban_id = request.json['kanban_id']
-    print(kanban_id)
-    return redirect(url_for('main.kanban', id=kanban_id))
+    list_id = request.json['list_id']
+    old_list_id = ['old_list_id']
+    task_id = ['task_id']
+
+    if not kanban_id or not list_id or not old_list_id or not task_id:
+        return Response(status=400)
+
+    return Response(status=204)
 
 @main.route('/boards/<id>')
 @login_required
