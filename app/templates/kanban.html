@@ -8,17 +8,17 @@
 {% block main %}
     {{ modals.task(id_kanban) }}
     {{ modals.list(id_kanban) }}
-    <div class="main-kanban">
+    <div class="main-kanban" id="kanban_{{ id_kanban }}">
         <div class="grid-board">
             {% for kanban_lists in kanban_lists %}
-                <div class="item-box">
+                <div class="item-box" id="list_{{ kanban_lists.id }}">
                     <div class="item">
                         <i class="fa-solid fa-bars btn-icons btn-bar"></i>
                         <input class="list-input" type="text" value="{{ kanban_lists.name }}"> 
                         {% set copy_task = tasks | selectattr("id_list", "sameas", kanban_lists.id) | list %}
                         {% for task in copy_task %}
-                            <div class="task" draggable="true">
-                                <i class="fa-solid fa-pencil btn-icons btn-pencil" id="task_{{ task.id }}"></i>
+                            <div class="task" draggable="true" id="task_{{ task.id }}">
+                                <i class="fa-solid fa-pencil btn-icons btn-pencil" id=""></i>
                                 <span>
                                     {{ task.content }}
                                 </span>

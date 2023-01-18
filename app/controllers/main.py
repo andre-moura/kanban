@@ -66,6 +66,14 @@ def task():
             db.session.commit()
         return redirect(url_for('main.kanban', id=id_kanban))
 
+
+@main.route('/drag-task', methods=['POST'])
+def drag_task():
+    print(request.json)
+    kanban_id = request.json['kanban_id']
+    print(kanban_id)
+    return redirect(url_for('main.kanban', id=kanban_id))
+
 @main.route('/boards/<id>')
 @login_required
 def boards(id):

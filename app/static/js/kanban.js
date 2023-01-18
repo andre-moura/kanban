@@ -2,7 +2,6 @@
 for (const draggableElement of document.querySelectorAll('.task')) {
     draggableElement.addEventListener('dragstart', e => {
         e.dataTransfer.setData('text/plain', draggableElement.id)
-        console.log(e.clientX - window.innerWidth / 2)
     });
 }
 
@@ -20,7 +19,21 @@ for (const dropZone of document.querySelectorAll('.item-box')) {
     dropZone.addEventListener('dragend', e => {
         const droppedElementId = e.dataTransfer.getData('text/plain');
         const droppedElement = document.getElementById(droppedElementId);
-        droppedElement.style.transform = 'rotate(0deg)';
+        const list_id = droppedElement.parentNode.parentNode.id.replace('list_', '');
+        const kanban_id = droppedElement.parentNode.parentNode.parentNode.parentNode.id.replace('kanban_', '');
+        
+        fetch('/drag-task', {
+            method: 'POST',
+            body: JSON.stringify({
+                kanban_id: kanban_id,
+                list_id: list_id,
+                task_id: droppedElementId.replace('task_', 'task')    
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        })
+        .then(response => response.json())
     });
 
     dropZone.addEventListener('drop', e => {
@@ -28,9 +41,6 @@ for (const dropZone of document.querySelectorAll('.item-box')) {
         const droppedElementId = e.dataTransfer.getData('text/plain');
         const droppedElement = document.getElementById(droppedElementId);
 
-        // droppedElement.style.transform = 'rotate(0deg)';
-        console.log(dropZone.children[0])
-        console.log(droppedElement)
         dropZone.children[0].appendChild(droppedElement);
         dropZone.classList.remove('item--over');
     });
