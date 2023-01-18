@@ -71,13 +71,16 @@ def task():
 def drag_task():
     kanban_id = request.json['kanban_id']
     list_id = request.json['list_id']
-    old_list_id = ['old_list_id']
-    task_id = ['task_id']
+    task_id = request.json['task_id'].replace('task_', '')
 
-    if not kanban_id or not list_id or not old_list_id or not task_id:
+    if not kanban_id or not list_id or not task_id:
         return Response(status=400)
 
-    
+    task = Task.query.filter_by(id=task_id).first()
+    task.id_list = list_id
+    db.session.add(task)
+    db.session.commit()
+
     return Response(status=204)
 
 @main.route('/boards/<id>')

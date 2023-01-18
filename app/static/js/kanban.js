@@ -1,10 +1,7 @@
 // Adding drag event in the task
-let old_list_id;
-
 for (const draggableElement of document.querySelectorAll('.task')) {
     draggableElement.addEventListener('dragstart', e => {
         e.dataTransfer.setData('text/plain', draggableElement.id);
-        old_list_id = draggableElement.parentNode.parentElement.id.replace('list_', '');
     });
 }
 
@@ -24,13 +21,13 @@ for (const dropZone of document.querySelectorAll('.item-box')) {
         const droppedElement = document.getElementById(droppedElementId);
         const list_id = droppedElement.parentNode.parentNode.id.replace('list_', '');
         const kanban_id = droppedElement.parentNode.parentNode.parentNode.parentNode.id.replace('kanban_', '');
+
         fetch('/drag-task', {
             method: 'PUT',
             body: JSON.stringify({
                 kanban_id: kanban_id,
                 list_id: list_id,
-                old_list_id: old_list_id,
-                task_id: droppedElementId.replace('task_', 'task')    
+                task_id: droppedElementId
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
