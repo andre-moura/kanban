@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, Response
+from flask import Blueprint, render_template, request, session, redirect, url_for, Response, jsonify
 from flask_login import login_required, current_user
 from app.models.tables import UserProjects, Project, Kanban, KanbanList, Task
 from app import db
@@ -45,7 +45,7 @@ def projects():
 @login_required
 def task():
     if request.method == 'POST':
-        id_task = request.form['task_id'].replace('btn_edit_', '')
+        id_task = request.form['task_id'].replace('btn_edit_pencil_', '')
         task = Task.query.filter_by(id=id_task).first()
         task_content = request.form['content']
         id_kanban = request.form['kanban_id']
@@ -109,7 +109,7 @@ def create_board():
         return redirect(url_for('main.boards', id=id_project))
 
 
-@main.route('/list', methods=['POST'])
+@main.route('/list', methods=['POST', 'PUT'])
 @login_required
 def list():
     if request.method == 'POST':
@@ -130,7 +130,19 @@ def list():
         )
         db.session.add(new_kanban_list)
         db.session.commit()
+
         return redirect(url_for('main.kanban', id=id_kanban))
+    
+    elif request.method == 'PUT':
+        list_id = request.json['id_list']
+        name = request.json['name']
+        kanban_list = KanbanList.query.filter_by(id=list_id).first()
+        kanban_list.name = name
+        db.session.add(kanban_list)
+        db.session.commit()
+
+        return jsonify({'message': 'List updated successfully.'}), 200
+
 
 @main.route('/kanban/<id>', methods=['GET', 'POST'])
 @login_required

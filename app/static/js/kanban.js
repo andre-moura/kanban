@@ -76,5 +76,23 @@ for (const addCard of document.getElementsByClassName('add-card')) {
         const btnTask = document.getElementsByName('btn_add_task')[0]
         btnTask.value = `btn_${e.target.id}`;
         modal.style.display = 'flex';
-    })
+    });
+}
+
+// edit list
+for (const editList of document.getElementsByClassName('list-input')) {
+    editList.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            let list_id = e.target.parentNode.parentNode.id.replace('list_', '')
+            let new_name = e.target.value
+
+            fetch('/list', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'id_list': list_id, 'name': new_name})
+            });
+        }
+    });
 }

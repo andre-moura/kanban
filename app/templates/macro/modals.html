@@ -12,8 +12,8 @@
                 <button class="button" value="" name="btn_add_task" id="" type="submit">Save</button>
                 <h3 class="h3-modal"><i class="fa-solid fa-user"></i> Members</h3>
                 <input class="input-form mg-tp-0">
-                <input type="text" name="kanban_id" value="{{ id_kanban }}" style="display: none;">
-                <input type="text" name="task_id" id="task_id" value="" style="display: none;">
+                <input type="hidden" name="kanban_id" value="{{ id_kanban }}">
+                <input type="hidden" name="task_id" id="task_id" value="">
             </form>
         </div>
     </div>
